@@ -1,7 +1,8 @@
-package com.example.desserts;
+package com.example.desserts.activities;
 
 import android.os.Bundle;
 
+import com.example.desserts.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
