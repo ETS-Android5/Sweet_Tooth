@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "564807550293",
+    "project_id": "dessert-db",
+    "storage_bucket": "dessert-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564807550293:android:e24c0cc19b01e7ab8e1bdc",
+        "android_client_info": {
+          "package_name": "com.example.desserts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564807550293-64cf70lillcr53omm2180gtfnmpqghqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJMjYrrWR-W13iHMer1VuaRHvcuHtSVwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564807550293-64cf70lillcr53omm2180gtfnmpqghqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
