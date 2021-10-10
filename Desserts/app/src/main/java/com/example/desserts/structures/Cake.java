@@ -1,7 +1,5 @@
 package com.example.desserts.structures;
 
-import android.media.Image;
-
 import java.util.List;
 
 /**
@@ -18,7 +16,6 @@ public class Cake extends Edible{
      * @param name - Name of Cake
      * @param Id - ID of Cake
      * @param cost - Cost of Cake
-     * @param images - Images for Cake
      * @param basicDescription - Basic Description of Cake
      * @param ingredientsContained - Ingredients contained in Cake
      * @param dietsSuitableFor - Diets Cake is suitable for
@@ -27,8 +24,8 @@ public class Cake extends Edible{
      * @param weight - Weight of one serving of Cake
      * @param slice - Number of slices in a serving of Cake
      */
-    public Cake (String name, long Id, float cost, List<Image> images, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int weight, int slice) {
-        super(name, Id, cost, images, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed);
+    public Cake (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int weight, int slice) {
+        super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed);
         this.weight = weight;
         this.slice = slice;
         this.addDescription(this.specificDescription());

@@ -1,7 +1,5 @@
 package com.example.desserts.structures;
 
-import android.media.Image;
-
 import java.util.List;
 
 /**
@@ -28,19 +26,6 @@ public interface Dessert {
      * @return float cost.
      */
     public float getCost();
-
-    /**
-     * Gets all the images of the Dessert.
-     * @return List of Images of Dessert.
-     */
-    public List<Image> getImages();
-
-    /**
-     * Gets the particular image of the Dessert.
-     * @param imageId - Number of the image wanted from all the images
-     * @return Particular Image of Dessert
-     */
-    public Image getImage(int imageId);
 
     /**
      * Gets the description of the Dessert.

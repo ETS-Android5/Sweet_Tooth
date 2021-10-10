@@ -1,7 +1,5 @@
 package com.example.desserts.structures;
 
-import android.media.Image;
-
 import java.util.List;
 
 /**
@@ -17,7 +15,6 @@ public class Tea extends Drinkable {
      * @param name - Name of Tea
      * @param Id - ID of Tea
      * @param cost - Cost of Tea
-     * @param images - Images for Tea
      * @param basicDescription - Basic Description of Tea
      * @param ingredientsContained - Ingredients contained in Tea
      * @param dietsSuitableFor - Diets Tea is suitable for
@@ -28,8 +25,8 @@ public class Tea extends Drinkable {
      * @param toppings - Toppings on Tea
      * @param teaBase - Tea base for the Tea
      */
-    public Tea (String name, long Id, float cost, List<Image> images, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, float volume, int ice, int sugar, List<String> toppings, String teaBase) {
-        super(name, Id, cost, images, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings);
+    public Tea (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, float volume, int ice, int sugar, List<String> toppings, String teaBase) {
+        super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings);
         this.teaBase = teaBase;
         this.addDescription(this.specificDescription());
     }

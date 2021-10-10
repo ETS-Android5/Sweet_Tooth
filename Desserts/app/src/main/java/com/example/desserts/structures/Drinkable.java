@@ -1,7 +1,5 @@
 package com.example.desserts.structures;
 
-import android.media.Image;
-
 import java.util.List;
 
 /**
@@ -14,7 +12,6 @@ abstract class Drinkable implements Dessert {
     private final String name;
     private final long Id;
     private final float cost;
-    private final List<Image> images;
     private final String basicDescription;
     private String description = null;
     private final List<String> ingredientsContained;
@@ -30,7 +27,6 @@ abstract class Drinkable implements Dessert {
      * @param name - name of Dessert
      * @param Id - ID of Dessert
      * @param cost - Cost of Dessert
-     * @param images - Images of Dessert
      * @param basicDescription - Basic Description of Dessert
      * @param ingredientsContained - Ingredients Contained in the Dessert
      * @param dietsSuitableFor - Diets the Dessert is Suitable For
@@ -40,11 +36,10 @@ abstract class Drinkable implements Dessert {
      * @param sugar - Sugar in Drinkable Dessert
      * @param toppings - Toppings for the Drinkable Dessert
      */
-    public Drinkable (String name, long Id, float cost, List<Image> images, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, float volume, int ice, int sugar, List<String> toppings) {
+    public Drinkable (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, float volume, int ice, int sugar, List<String> toppings) {
         this.name = name;
         this.Id = Id;
         this.cost = cost;
-        this.images = images;
         this.basicDescription = basicDescription;
         this.ingredientsContained = ingredientsContained;
         this.dietsSuitableFor = dietsSuitableFor;
@@ -77,23 +72,6 @@ abstract class Drinkable implements Dessert {
      */
     public float getCost() {
         return cost;
-    }
-
-    /**
-     * Gets all the images of the Drinkable Dessert.
-     * @return List of Images of Drinkable Dessert.
-     */
-    public List<Image> getImages() {
-        return images;
-    }
-
-    /**
-     * Gets the particular image of the Drinkable Dessert.
-     * @param imageId - Number of the image wanted from all the images
-     * @return Particular Image of Drinkable Dessert
-     */
-    public Image getImage(int imageId) {
-        return images.get(imageId);
     }
 
     /**

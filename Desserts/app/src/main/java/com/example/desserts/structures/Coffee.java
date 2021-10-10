@@ -1,7 +1,5 @@
 package com.example.desserts.structures;
 
-import android.media.Image;
-
 import java.util.List;
 
 /**
@@ -17,7 +15,6 @@ public class Coffee extends Drinkable {
      * @param name - Name of Coffee
      * @param Id - ID of Coffee
      * @param cost - Cost of Coffee
-     * @param images - Images for Coffee
      * @param basicDescription - Basic Description of Coffee
      * @param ingredientsContained - Ingredients contained in Coffee
      * @param dietsSuitableFor - Diets Coffee is suitable for
@@ -28,8 +25,8 @@ public class Coffee extends Drinkable {
      * @param toppings - Toppings on Coffee
      * @param percentCoffee - Percentage of Coffee in the Coffee Dessert
      */
-    public Coffee (String name, long Id, float cost, List<Image> images, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, float volume, int ice, int sugar, List<String> toppings, int percentCoffee) {
-        super(name, Id, cost, images, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings);
+    public Coffee (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, float volume, int ice, int sugar, List<String> toppings, int percentCoffee) {
+        super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings);
         this.percentCoffee = percentCoffee;
         this.addDescription(this.specificDescription());
     }

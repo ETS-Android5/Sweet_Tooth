@@ -1,7 +1,5 @@
 package com.example.desserts.structures;
 
-import android.media.Image;
-
 import java.util.List;
 
 /**
@@ -17,7 +15,6 @@ public class IceCream extends Edible {
      * @param name - Name of IceCream
      * @param Id - ID of IceCream
      * @param cost - Cost of IceCream
-     * @param images - Images for IceCream
      * @param basicDescription - Basic Description of IceCream
      * @param ingredientsContained - Ingredients contained in IceCream
      * @param dietsSuitableFor - Diets IceCream is suitable for
@@ -26,8 +23,8 @@ public class IceCream extends Edible {
      * @param scoops - Scoops in one serving of IceCream
      * @param cone - If the serving of IceCream is with a cone
      */
-    public IceCream (String name, long Id, float cost, List<Image> images, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int scoops, boolean cone) {
-        super(name, Id, cost, images, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed);
+    public IceCream (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int scoops, boolean cone) {
+        super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed);
         this.scoops = scoops;
         this.cone = cone;
         this.addDescription(this.specificDescription());

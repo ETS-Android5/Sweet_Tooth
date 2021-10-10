@@ -1,7 +1,5 @@
 package com.example.desserts.structures;
 
-import android.media.Image;
-
 import java.util.List;
 
 /**
@@ -14,7 +12,6 @@ abstract class Edible implements Dessert {
     private final String name;
     private final long Id;
     private final float cost;
-    private final List<Image> images;
     private final String basicDescription;
     private String description = null;
     private final List<String> ingredientsContained;
@@ -27,18 +24,16 @@ abstract class Edible implements Dessert {
      * @param name - name of Edible Dessert
      * @param Id - ID of Edible Dessert
      * @param cost - Cost of Edible Dessert
-     * @param images - Images of Edible Dessert
      * @param basicDescription - Basic Description of Edible Dessert
      * @param ingredientsContained - Ingredients Contained in the Edible Dessert
      * @param dietsSuitableFor - Diets the Edible Dessert is Suitable For
      * @param numberViewed - Number of times the Edible Dessert has been viewed
      * @param peopleServed - People served by 1 serving of the Edible Dessert
      */
-    public Edible (String name, long Id, float cost, List<Image> images, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed) {
+    public Edible (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed) {
         this.name = name;
         this.Id = Id;
         this.cost = cost;
-        this.images = images;
         this.basicDescription = basicDescription;
         this.ingredientsContained = ingredientsContained;
         this.dietsSuitableFor = dietsSuitableFor;
@@ -68,23 +63,6 @@ abstract class Edible implements Dessert {
      */
     public float getCost() {
         return cost;
-    }
-
-    /**
-     * Gets all the images of the Edible Dessert.
-     * @return List of Images of Edible Dessert.
-     */
-    public List<Image> getImages() {
-        return images;
-    }
-
-    /**
-     * Gets the particular image of the Edible Dessert.
-     * @param imageId - Number of the image wanted from all the images
-     * @return Particular Image of Edible Dessert
-     */
-    public Image getImage(int imageId) {
-        return images.get(imageId);
     }
 
     /**
