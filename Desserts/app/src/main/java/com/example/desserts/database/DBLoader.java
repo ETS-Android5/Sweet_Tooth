@@ -123,9 +123,9 @@ public class DBLoader {
                                     List<String> dietsSuitableFor = (List<String>) document.get("dietsSuitableFor");
                                     long numberViewed = (long) document.get("numberViewed");
                                     float volume = (float) document.get("volume");
-                                    int ice = (int) document.get("peopleServed");
-                                    int sugar = (int) document.get("weight");
-                                    List<String> toppings = (List<String>) document.get("slice");
+                                    int ice = (int) document.get("ice");
+                                    int sugar = (int) document.get("sugar");
+                                    List<String> toppings = (List<String>) document.get("toppings");
                                     String teaBase = (String) document.get("teaBase");
                                     tea.add(new Tea(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings, teaBase));
                                 } catch (NullPointerException e) {
@@ -163,9 +163,9 @@ public class DBLoader {
                                     List<String> dietsSuitableFor = (List<String>) document.get("dietsSuitableFor");
                                     long numberViewed = (long) document.get("numberViewed");
                                     float volume = (float) document.get("volume");
-                                    int ice = (int) document.get("peopleServed");
-                                    int sugar = (int) document.get("weight");
-                                    List<String> toppings = (List<String>) document.get("slice");
+                                    int ice = (int) document.get("ice");
+                                    int sugar = (int) document.get("sugar");
+                                    List<String> toppings = (List<String>) document.get("toppings");
                                     int coffeePercent = (int) document.get("coffeePercent");
                                     coffee.add(new Coffee(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings, coffeePercent));
                                 } catch (NullPointerException e) {
