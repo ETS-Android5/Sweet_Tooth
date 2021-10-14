@@ -70,7 +70,7 @@ public class DBLoader {
     public static List<Dessert> getAllIceCream() {
         List<Dessert> iceCream = new ArrayList<>();
         FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
-        dessertDBFirestore.collection("Desserts").document("Edible").collection("IceCream").get()
+        dessertDBFirestore.collection("Desserts").document("Edible").collection("Ice Cream").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
