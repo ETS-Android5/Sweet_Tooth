@@ -70,7 +70,7 @@ public class DBLoader {
     public static List<Dessert> getAllIceCream() {
         List<Dessert> iceCream = new ArrayList<>();
         FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
-        dessertDBFirestore.collection("Desserts").document("Edible").collection("Cake").get()
+        dessertDBFirestore.collection("Desserts").document("Edible").collection("IceCream").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -108,7 +108,7 @@ public class DBLoader {
     public static List<Dessert> getAllTea() {
         List<Dessert> tea = new ArrayList<>();
         FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
-        dessertDBFirestore.collection("Desserts").document("Edible").collection("Cake").get()
+        dessertDBFirestore.collection("Desserts").document("Edible").collection("Tea").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -148,7 +148,7 @@ public class DBLoader {
     public static List<Dessert> getAllCoffee() {
         List<Dessert> coffee = new ArrayList<>();
         FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
-        dessertDBFirestore.collection("Desserts").document("Edible").collection("Cake").get()
+        dessertDBFirestore.collection("Desserts").document("Edible").collection("Coffee").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
