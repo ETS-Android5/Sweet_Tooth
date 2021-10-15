@@ -1,5 +1,7 @@
 package com.example.desserts.structures;
 
+import com.example.desserts.database.DBLoader;
+
 import java.util.List;
 
 /**
@@ -42,6 +44,15 @@ public class IceCream extends Edible {
             description = description + "\nComes in a cone.";
         }
         return description;
+    }
+
+    /**
+     * Increases the number of people who viewed the app at runtime.
+     */
+    @Override
+    public void increaseNumberViewed() {
+        super.increaseNumberViewed();
+        DBLoader.addNumberViewed("Edible", "Ice cream", this.getId(), this.getNumberViewed());
     }
 
 }

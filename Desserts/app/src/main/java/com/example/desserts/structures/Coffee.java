@@ -1,5 +1,7 @@
 package com.example.desserts.structures;
 
+import com.example.desserts.database.DBLoader;
+
 import java.util.List;
 
 /**
@@ -40,5 +42,14 @@ public class Coffee extends Drinkable {
         description = description + this.getBasicDescription() + "\n" + this.getAdditionalDetails();
         description = description + "\nCoffee: " + percentCoffee + "%";
         return description;
+    }
+
+    /**
+     * Increases the number of people who viewed the app at runtime.
+     */
+    @Override
+    public void increaseNumberViewed() {
+        super.increaseNumberViewed();
+        DBLoader.addNumberViewed("Drinkable", "Tea", this.getId(), this.getNumberViewed());
     }
 }
