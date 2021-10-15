@@ -1,5 +1,7 @@
 package com.example.desserts.structures;
 
+import com.example.desserts.database.DBLoader;
+
 import java.util.List;
 
 /**
@@ -40,6 +42,15 @@ public class Cake extends Edible{
         description = description + this.getBasicDescription() + "\n" + this.getAdditionalDetails();
         description = description + "\nWeight: " + weight + "\nSlice(s): " + slice;
         return description;
+    }
+
+    /**
+     * Increases the number of people who viewed the app at runtime.
+     */
+    @Override
+    public void increaseNumberViewed() {
+        super.increaseNumberViewed();
+        DBLoader.addNumberViewed("Edible", "Cake", this.getId(), this.getNumberViewed());
     }
 
 }

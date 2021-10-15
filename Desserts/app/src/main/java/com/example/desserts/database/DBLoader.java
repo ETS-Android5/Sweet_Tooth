@@ -180,4 +180,17 @@ public class DBLoader {
         return coffee;
     }
 
+    /**
+     * The addNumberViewed gets used in the concrete classes to update the number in the database by one.
+     *
+     * @param abstractClass - The abstract class inherited by the concrete class which implements the Dessert interface.
+     * @param concrete      - The concrete class in which this method is called.
+     * @param id            - The id of the object.
+     * @param numberViewed  - The updated number viewed.
+     */
+    public static void addNumberViewed(String abstractClass, String concrete, long id, long numberViewed) {
+        FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
+        dessertDBFirestore.collection("Desserts").document(abstractClass).collection(concrete).document(Long.toString(id)).update("numberViewed", numberViewed);
+    }
+
 }
