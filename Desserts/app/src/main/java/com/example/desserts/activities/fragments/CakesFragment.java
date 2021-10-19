@@ -1,4 +1,4 @@
-package com.example.desserts.activities;
+package com.example.desserts.activities.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,11 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.desserts.R;
-import com.example.desserts.databinding.FragmentFirstBinding;
+import com.example.desserts.databinding.FragmentCakesBinding;
 
-public class FirstFragment extends Fragment {
+public class CakesFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private FragmentCakesBinding binding;
 
     @Override
     public View onCreateView(
@@ -22,7 +22,7 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+        binding = FragmentCakesBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -33,8 +33,8 @@ public class FirstFragment extends Fragment {
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+//                NavHostFragment.findNavController(CakesFragment.this)
+//                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
     }

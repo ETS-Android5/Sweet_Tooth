@@ -7,13 +7,15 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.desserts.R;
+import com.example.desserts.activities.fragments.CakesFragment;
+import com.example.desserts.activities.fragments.DrinksFragment;
+import com.example.desserts.activities.fragments.FrozenFragment;
 import com.example.desserts.databinding.ActivityListBinding;
 
+import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -29,15 +31,31 @@ public class ListActivity extends AppCompatActivity {
         binding = ActivityListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Set up the custom toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        // Dynamically load the fragment
+        Bundle extras = getIntent().getExtras();
+        String category = extras.getString("category");
+        if (category != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            switch (category) {
+                case "cakes":
+                    ft.replace(R.id.list_fragment_placeholder, new CakesFragment());
+                    break;
+                case "drinks":
+                    ft.replace(R.id.list_fragment_placeholder, new DrinksFragment());
+                    break;
+                case "frozen":
+                    ft.replace(R.id.list_fragment_placeholder, new FrozenFragment());
+                    break;
+            }
+            ft.commit();
+        }
     }
 
     @Override
@@ -63,12 +81,12 @@ public class ListActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+//        return NavigationUI.navigateUp(navController, appBarConfiguration)
+//                || super.onSupportNavigateUp();
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -80,13 +98,16 @@ public class ListActivity extends AppCompatActivity {
                 } else {
                     drawer.openDrawer(GravityCompat.END);
                 }
-                break;
+                return true;
             case R.id.action_search:
                 Toast.makeText(ListActivity.this, "searching", Toast.LENGTH_SHORT).show();
-                break;
+                return true;
             case android.R.id.home:
-                onBackPressed();
+//                onBackPressed();
+                NavUtils.navigateUpFromSameTask(this);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                return true;
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 }
