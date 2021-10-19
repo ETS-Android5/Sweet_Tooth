@@ -17,7 +17,7 @@
         <item name="android:editTextColor">@color/burgundy</item>
         <item name="android:textColorHighlight">@color/pale_cherry</item>
 
-        <item name="android:tint">@color/pale_burgundy</item>
+<!--        <item name="android:tint">@color/pale_burgundy</item>-->
         <item name="iconTint">@color/pale_burgundy</item>
 
         <item name="android:queryBackground">@color/pale_cherry</item>
@@ -29,6 +29,7 @@
     </style>
 
     <style name="Theme.Desserts.AppBarOverlay" parent="ThemeOverlay.AppCompat.DayNight.ActionBar">
+        <item name="android:tint">@color/pale_burgundy</item>
         <item name="android:textColorHint">@color/pale_cherry</item>
         <item name="android:textColorHighlight">@color/light_grey</item>
         <item name="colorControlNormal">@color/pale_burgundy</item>
