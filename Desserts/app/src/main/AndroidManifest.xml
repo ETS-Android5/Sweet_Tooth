@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Desserts">
         <activity
+            android:name=".activities.DetailsActivity"
+            android:label="DetailsActivity"
+            android:theme="@style/Theme.Desserts.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.ListActivity" />
+        </activity>
+        <activity
             android:name=".activities.ListActivity"
             android:label="ListAcitivty"
             android:theme="@style/Theme.Desserts.NoActionBar">

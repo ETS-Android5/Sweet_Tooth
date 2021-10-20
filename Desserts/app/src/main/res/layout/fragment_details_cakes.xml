@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@android:attr/actionBarSize">
+
+    <!--    IMAGE CARD VIEW     -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cake_image_card_details"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="-40dp" >
+
+        <ImageView
+            android:id="@+id/cake_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/cake1_1"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/cake_title_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="12dp"
+        android:text="@string/details_title"
+        android:textColor="@color/burgundy"
+        app:layout_constraintTop_toBottomOf="@+id/cake_image_card_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cake_weight_card"
+        />
+
+    <TextView
+        android:id="@+id/cake_weight_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="12dp"
+        android:text="@string/cake_price_placeholder"
+        android:textColor="@color/light_creme"
+        app:layout_constraintTop_toTopOf="@+id/cake_weight_card"
+        app:layout_constraintEnd_toEndOf="@+id/cake_weight_card"
+        app:layout_constraintStart_toStartOf="@+id/cake_weight_card"
+        app:layout_constraintBottom_toBottomOf="@+id/cake_weight_card"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cake_weight_card"
+        android:layout_width="88dp"
+        android:layout_height="30dp"
+        android:translationZ="9dp"
+        app:cardCornerRadius="20dp"
+        android:elevation="0dp"
+        android:backgroundTint="@color/cherry"
+        app:layout_constraintTop_toBottomOf="@+id/cake_title_details"
+        app:layout_constraintBottom_toTopOf="@+id/cake_descrip_details"
+        app:layout_constraintEnd_toStartOf="@+id/cake_price_card"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/cake_price_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="12dp"
+        android:text="@string/cake_price_placeholder"
+        android:textColor="@color/light_creme"
+        app:layout_constraintTop_toTopOf="@+id/cake_price_card"
+        app:layout_constraintEnd_toEndOf="@+id/cake_price_card"
+        app:layout_constraintStart_toStartOf="@+id/cake_price_card"
+        app:layout_constraintBottom_toBottomOf="@+id/cake_price_card"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cake_price_card"
+        android:layout_width="88dp"
+        android:layout_height="30dp"
+        android:translationZ="9dp"
+        app:cardCornerRadius="20dp"
+        android:elevation="0dp"
+        android:backgroundTint="@color/cherry"
+        app:layout_constraintTop_toBottomOf="@+id/cake_title_details"
+        app:layout_constraintBottom_toTopOf="@+id/cake_descrip_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/cake_servings_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="12dp"
+        android:text="@string/cake_price_placeholder"
+        android:textColor="@color/light_creme"
+        app:layout_constraintTop_toTopOf="@+id/cake_servings_card"
+        app:layout_constraintEnd_toEndOf="@+id/cake_servings_card"
+        app:layout_constraintStart_toStartOf="@+id/cake_servings_card"
+        app:layout_constraintBottom_toBottomOf="@+id/cake_servings_card"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cake_servings_card"
+        android:layout_width="88dp"
+        android:layout_height="30dp"
+        android:translationZ="9dp"
+        app:cardCornerRadius="20dp"
+        android:elevation="0dp"
+        android:backgroundTint="@color/cherry"
+        app:layout_constraintTop_toBottomOf="@+id/cake_title_details"
+        app:layout_constraintBottom_toTopOf="@+id/cake_descrip_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cake_price_card"
+        />
+
+    <TextView
+        android:id="@+id/cake_descrip_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="12dp"
+        android:text="cake item description"
+        android:textColor="@color/burgundy"
+        app:layout_constraintTop_toBottomOf="@+id/cake_title_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <Button
+        android:id="@+id/cake_add_button_details"
+        android:layout_width="180dp"
+        android:layout_height="48dp"
+        android:drawableStart="@drawable/ic_baseline_add"
+        android:drawableTint="@color/light_creme"
+        android:backgroundTint="@color/pale_burgundy"
+        android:text="@string/cart_text"
+        android:textColor="@color/light_creme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cake_descrip_details" />
+
+    <TextView
+        android:id="@+id/cake_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/details_back"
+        android:textColor="@color/burgundy"
+        android:translationZ="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cake_image_card_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arrow" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="24dp"
+        android:layout_height="32dp"
+        android:background="@drawable/ic_baseline_south_24"
+        android:backgroundTint="@color/burgundy"
+        android:scaleY="-1"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/cake_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="108dp"
+        android:layout_height="56dp"
+        android:scaleY="-1"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/item_bg"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cake_image_card_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

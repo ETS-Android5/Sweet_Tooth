@@ -1,23 +1,22 @@
 package com.example.desserts.activities.adaptors;
 
-import android.content.ClipData.Item;
-import android.content.Context;
-import android.content.res.Resources;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desserts.R;
+import com.example.desserts.activities.DetailsActivity;
+import com.example.desserts.activities.ListActivity;
 import com.example.desserts.structures.Dessert;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHolder> {
@@ -42,17 +41,20 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
 
     private List<Dessert> items;
     private String category;
+    private FragmentActivity context;
+    private Dessert currentItem;
 
-    public ItemListAdapter(List<Dessert> items, String category) {
+    public ItemListAdapter(List<Dessert> items, String category, FragmentActivity c) {
         this.items = items;
         this.category = category;
+        this.context = c;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate layout
-        View dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cakeitem, parent, false);
+        View dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cake_list_item, parent, false);
 
         // Return new holder instance
         ViewHolder viewHolder = new ViewHolder(dessertView);
@@ -61,7 +63,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ItemListAdapter.ViewHolder holder, int position) {
-        Dessert currentItem = items.get(position);
+        currentItem = items.get(position);
 
         TextView price = holder.priceTextView;
         TextView title = holder.titleTextView;
@@ -72,7 +74,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         price.setText("$" + currentItem.getCost());
         title.setText(currentItem.getName());
 
-//        this.category + currentItem.getId() + "_1";
         String imageName = currentItem.getCategory() + currentItem.getId() + "_1";
         int id;
         try {
@@ -84,8 +85,16 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             e.printStackTrace();
         }
 
-//        int id = Resources.getSystem().getIdentifier(imageName, "drawable", "android");
-//        image.setImageResource(id);
+        holder.itemView.setOnClickListener(v -> {
+            Intent switchActivityIntent = new Intent(context, DetailsActivity.class);
+            switchActivityIntent.putExtra("category", "cake");
+            switchActivityIntent.putExtra("name", "some name");
+            switchActivityIntent.putExtra("description", "very good cake");
+            switchActivityIntent.putExtra("price", "$" + "2.7");
+            switchActivityIntent.putExtra("id", "" + 6);
+            context.startActivity(switchActivityIntent);
+            context.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
     }
 
     @Override

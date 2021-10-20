@@ -67,11 +67,14 @@ public class MainActivity extends AppCompatActivity {
         coffees = (List<Dessert>) intent.getSerializableExtra("coffees");
 
         frozen = iceCream;
-        drinks.addAll(teas);
+        if (drinks != null) {
+            drinks.addAll(teas);
+        }
         drinks.addAll(coffees);
         allDesserts.addAll(cakes);
         allDesserts.addAll(frozen);
         allDesserts.addAll(drinks);
+        System.out.println(cakes);
 
         // Set up the custom toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);

@@ -12,18 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desserts.R;
 import com.example.desserts.activities.adaptors.ItemListAdapter;
-import com.example.desserts.database.DBLoader;
-import com.example.desserts.databinding.FragmentCakesBinding;
+import com.example.desserts.databinding.FragmentListCakesBinding;
 import com.example.desserts.structures.Dessert;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.crypto.spec.DESKeySpec;
-
 public class CakesFragment extends Fragment {
 
-    private FragmentCakesBinding binding;
+    private FragmentListCakesBinding binding;
     private View view;
     private List<Dessert> cakesList = new ArrayList<>();
 
@@ -39,9 +36,9 @@ public class CakesFragment extends Fragment {
 //        MockDataSet mockDataSet = new MockDataSet();
 //        List<Dessert> cakesList = mockDataSet.getItems();
 //        List<Dessert> cakesList = DBLoader.getAllCakes();
-        view = inflater.inflate(R.layout.fragment_cakes, container, false);
+        view = inflater.inflate(R.layout.fragment_list_cakes, container, false);
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.cake_listview);
-        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, "cake");
+        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, "cake", getActivity());
         cakeRecyclerView.setAdapter(itemListAdapter);
         cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
 
@@ -52,7 +49,7 @@ public class CakesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+//        binding.cakeListview.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
 ////                NavHostFragment.findNavController(CakesFragment.this)
