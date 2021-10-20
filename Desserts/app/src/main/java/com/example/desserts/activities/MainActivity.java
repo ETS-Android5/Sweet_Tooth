@@ -18,6 +18,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.desserts.database.DBLoader;
 import com.example.desserts.databinding.ActivityMainBinding;
+import com.example.desserts.helper.Helpers;
 import com.example.desserts.structures.Dessert;
 
 import android.view.Menu;
@@ -28,6 +29,7 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,16 +37,35 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private String selectedCategory;
-    private List<Dessert> cakes = DBLoader.getAllCakes();
-    private List<Dessert> iceCream = DBLoader.getAllIceCreams();
-    private List<Dessert> teas = DBLoader.getAllTeas();
-    private List<Dessert> coffees = DBLoader.getAllCoffees();
+    private List<Dessert> cakes = new ArrayList<>();
+    private List<Dessert> iceCream = new ArrayList<>();
+    private List<Dessert> teas = new ArrayList<>();
+    private List<Dessert> coffees = new ArrayList<>();
+    private SearchView mSearchView;
+    private List<Dessert> allDesserts = new ArrayList<>();
+    private List<Dessert> frozen = new ArrayList<>();
+    private List<Dessert> drinks = new ArrayList<>();
+    private List<Dessert> searchResults = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        Intent intent = getIntent();
+        cakes = (List<Dessert>) intent.getSerializableExtra("cakes");
+        iceCream = (List<Dessert>) intent.getSerializableExtra("iceCream");
+        teas = (List<Dessert>) intent.getSerializableExtra("teas");
+        coffees = (List<Dessert>) intent.getSerializableExtra("coffees");
+
+        frozen = iceCream;
+        drinks.addAll(teas);
+        drinks.addAll(coffees);
+        allDesserts.addAll(cakes);
+        allDesserts.addAll(frozen);
+        allDesserts.addAll(drinks);
 
         // Set up the custom toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -53,36 +74,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        // (OLD) Category buttons
-//        Button cakesListButton = findViewById(R.id.button_cakes);
-//        cakesListButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "Cakes list loading...", Toast.LENGTH_SHORT).show();
-//                selectedCategory = "cakes";
-//                switchToListActivity();
-//            }
-//        });
-//
-//        Button drinksListButton = findViewById(R.id.button_drinks);
-//        drinksListButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "Drinks list loading...", Toast.LENGTH_SHORT).show();
-//                selectedCategory = "drinks";
-//                switchToListActivity();
-//            }
-//        });
-//
-//        Button frozenListButton = findViewById(R.id.button_frozen);
-//        frozenListButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "Frozen list loading...", Toast.LENGTH_SHORT).show();
-//                selectedCategory = "frozen";
-//                switchToListActivity();
-//            }
-//        });
         // Category buttons
         ImageButton cakesListButton = findViewById(R.id.button_cakes);
         cakesListButton.setOnClickListener(v -> {
@@ -114,13 +105,15 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_menu, menu);
         MenuItem mSearch = menu.findItem(R.id.action_search);
-        SearchView mSearchView = (SearchView) mSearch.getActionView();
+        mSearchView = (SearchView) mSearch.getActionView();
         mSearchView.setQueryHint("Search");
         mSearchView.setMaxWidth(750);
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(MainActivity.this, "query submit", Toast.LENGTH_SHORT).show();
+                String searchQuery = mSearchView.getQuery().toString();
+                searchResults = Helpers.search(allDesserts,searchQuery);
                 return true;
             }
 
@@ -161,8 +154,6 @@ public class MainActivity extends AppCompatActivity {
         switchActivityIntent.putExtra("iceCream", (Serializable) iceCream);
         switchActivityIntent.putExtra("teas", (Serializable) teas);
         switchActivityIntent.putExtra("coffees", (Serializable) coffees);
-//        Bundle bundle = new Bundle();
-//        bundle.putParcelable("cakes", cakes);
         startActivity(switchActivityIntent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
