@@ -81,13 +81,6 @@ public class ListActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-//        return NavigationUI.navigateUp(navController, appBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
