@@ -230,39 +230,4 @@ public class DBLoader {
         return coffees;
     }
 
-    /**
-     * The search methods search for the query in the objects provided.
-     * @param listToSearchIn - List of Desserts provided to search in.
-     * @param searchQuery - String query to search for.
-     * @return searchResults - A List of Desserts which match query, If not found, list is empty.
-     */
-    public static List<Dessert> search(List<Dessert> listToSearchIn, String searchQuery) {
-        List<Dessert> searchResults = new ArrayList<>();
-        for (Dessert des: listToSearchIn) {
-            boolean found = false;
-            if ((Double.toString(des.getCost()).contains(searchQuery)) || (des.getDescription().contains(searchQuery)) || (des.getName().contains(searchQuery))) {
-                searchResults.add(des);
-                found = true;
-            }
-            if (!found) {
-                for (String ing: des.getContainedIngredients()) {
-                    if (ing.contains(searchQuery)) {
-                        searchResults.add(des);
-                        found = true;
-                        break;
-                    }
-                }
-            }
-            if (!found) {
-                for (String diets: des.getDietsSuitableFor()) {
-                    if (diets.contains(searchQuery)) {
-                        searchResults.add(des);
-                        break;
-                    }
-                }
-            }
-        }
-        return searchResults;
-    }
-
 }
