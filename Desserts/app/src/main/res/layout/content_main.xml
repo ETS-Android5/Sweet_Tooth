@@ -4,45 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <Button
-        android:id="@+id/button_cakes"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/categories"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Go to Cakes list"
-        app:layout_constraintBottom_toTopOf="@id/button_drinks"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_first" />
-
-    <Button
-        android:id="@+id/button_drinks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to Drinks list"
-        app:layout_constraintBottom_toTopOf="@+id/button_frozen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_drinks" />
-
-    <Button
-        android:id="@+id/button_frozen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to Frozen list"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_drinks" />
-
-    <TextView
-        android:id="@+id/textview_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MainActivity"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/topViewedDesserts">
+
+        <ImageButton
+            android:id="@+id/button_cakes"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:paddingEnd="1dp"
+            android:scaleType="centerCrop"
+            android:scaleY="1.1"
+            android:tintMode="add"
+            app:tint="@drawable/ic_baseline_dimeffect"
+            tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck"
+            tools:srcCompat="@drawable/cake7_2" />
+
+        <ImageButton
+            android:id="@+id/button_drinks"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:scaleY="1.1"
+            android:tintMode="add"
+            app:tint="@drawable/ic_baseline_dimeffect"
+            tools:ignore="ImageContrastCheck"
+            tools:srcCompat="@drawable/coffee4_3" />
+
+        <ImageButton
+            android:id="@+id/button_frozen"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:scaleY="1.1"
+            android:tintMode="add"
+            app:tint="@drawable/ic_baseline_dimeffect"
+            tools:ignore="SpeakableTextPresentCheck"
+            tools:srcCompat="@drawable/icecream3_2" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/topViewedDesserts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/category_titles"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topViewedDesserts">
+
+        <TextView
+            android:id="@+id/caketitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:text="Cakes"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/drinkstitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:text="Drinks"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/frozentitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:text="Frozen"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <!--        <include layout="@layout/template_mostviewed"/>-->
+<!--        />-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

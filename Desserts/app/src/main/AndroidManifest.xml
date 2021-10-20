@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Desserts">
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/splash_screen" />
+
         <activity
             android:name=".activities.ListActivity"
             android:label="@string/title_activity_main2"

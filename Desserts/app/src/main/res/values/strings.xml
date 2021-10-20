@@ -20,9 +20,5 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="cart_header">Your Orders:</string>
-    <string name="cake_price_placeholder"><b>$price</b></string>
-    <string name="cake_prev_title">prev_title</string>
-    <string name="cake_next_title">next_title</string>
-    <string name="cake_title"><b>title</b></string>
-    <string name="cake_view"><b>View</b></string>
+    <string name="frozen" />
 </resources>
