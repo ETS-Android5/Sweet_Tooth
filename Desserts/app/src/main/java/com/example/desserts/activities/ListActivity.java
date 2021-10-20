@@ -47,9 +47,9 @@ public class ListActivity extends AppCompatActivity {
         String category = extras.getString("category");
         Intent intent = getIntent();
         List<Dessert> cakes = (List<Dessert>) intent.getSerializableExtra("cakes");
-        List<Dessert> iceCream = (List<Dessert>) intent.getSerializableExtra("iceCream");
-        List<Dessert> teas = (List<Dessert>) intent.getSerializableExtra("teas");
-        List<Dessert> coffees = (List<Dessert>) intent.getSerializableExtra("coffees");
+        List<Dessert> frozen = (List<Dessert>) intent.getSerializableExtra("frozen");
+        List<Dessert> drinks = (List<Dessert>) intent.getSerializableExtra("drinks");
+        List<Dessert> searchResults = (List<Dessert>) intent.getSerializableExtra("searchResults");
         if (category != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (category) {
@@ -59,10 +59,27 @@ public class ListActivity extends AppCompatActivity {
                     ft.replace(R.id.list_fragment_placeholder, cF);
                     break;
                 case "drinks":
-                    ft.replace(R.id.list_fragment_placeholder, new DrinksFragment());
+                    //---------Uncomment after implementation
+                    DrinksFragment dF = new DrinksFragment();
+                    dF.populateCakes(drinks);
+                    ft.replace(R.id.list_fragment_placeholder, dF);
+//                    CakesFragment dF = new CakesFragment();
+//                    dF.populateCakes(drinks);
+//                    ft.replace(R.id.list_fragment_placeholder, dF);
                     break;
                 case "frozen":
-                    ft.replace(R.id.list_fragment_placeholder, new FrozenFragment());
+                    //---------Uncomment after implementation
+                    FrozenFragment fF = new FrozenFragment();
+                    fF.populateCakes(frozen);
+                    ft.replace(R.id.list_fragment_placeholder, fF);
+//                    CakesFragment fF = new CakesFragment();
+//                    fF.populateCakes(frozen);
+//                    ft.replace(R.id.list_fragment_placeholder, fF);
+                    break;
+                case "searchResults":
+                    CakesFragment sRF = new CakesFragment();
+                    sRF.populateCakes(searchResults);
+                    ft.replace(R.id.list_fragment_placeholder, sRF);
                     break;
             }
             ft.commit();

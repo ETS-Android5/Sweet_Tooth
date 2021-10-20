@@ -151,9 +151,9 @@ public class MainActivity extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(this, ListActivity.class);
         switchActivityIntent.putExtra("category", selectedCategory);
         switchActivityIntent.putExtra("cakes", (Serializable) cakes);
-        switchActivityIntent.putExtra("iceCream", (Serializable) iceCream);
-        switchActivityIntent.putExtra("teas", (Serializable) teas);
-        switchActivityIntent.putExtra("coffees", (Serializable) coffees);
+        switchActivityIntent.putExtra("frozen", (Serializable) frozen);
+        switchActivityIntent.putExtra("drinks", (Serializable) drinks);
+        switchActivityIntent.putExtra("searchResults", (Serializable) searchResults);
         startActivity(switchActivityIntent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
