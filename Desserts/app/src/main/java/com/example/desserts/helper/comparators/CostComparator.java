@@ -6,8 +6,10 @@ import java.util.Comparator;
 
 /**
  * CostComparator compares Desserts based on Cost.
+ *
+ * @author Osama Kashif
  */
-public class CostComparator  implements Comparator<Dessert> {
+public class CostComparator implements Comparator<Dessert> {
 
     /**
      * @param d1 - Dessert 1 to compare
@@ -16,7 +18,7 @@ public class CostComparator  implements Comparator<Dessert> {
      */
     @Override
     public int compare(Dessert d1, Dessert d2) {
-        return (int)(d1.getCost() - d2.getCost());
+        return (int) (d1.getCost() - d2.getCost());
     }
 
 }

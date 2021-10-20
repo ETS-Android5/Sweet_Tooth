@@ -18,20 +18,21 @@ public class Helpers {
 
     /**
      * The search methods search for the query in the objects provided.
+     *
      * @param listToSearchIn - List of Desserts provided to search in.
-     * @param searchQuery - String query to search for.
+     * @param searchQuery    - String query to search for.
      * @return searchResults - A List of Desserts which match query, If not found, list is empty.
      */
     public static List<Dessert> search(List<Dessert> listToSearchIn, String searchQuery) {
         List<Dessert> searchResults = new ArrayList<>();
-        for (Dessert des: listToSearchIn) {
+        for (Dessert des : listToSearchIn) {
             boolean found = false;
             if ((Double.toString(des.getCost()).contains(searchQuery)) || (des.getDescription().contains(searchQuery)) || (des.getName().contains(searchQuery))) {
                 searchResults.add(des);
                 found = true;
             }
             if (!found) {
-                for (String ing: des.getContainedIngredients()) {
+                for (String ing : des.getContainedIngredients()) {
                     if (ing.contains(searchQuery)) {
                         searchResults.add(des);
                         found = true;
@@ -40,7 +41,7 @@ public class Helpers {
                 }
             }
             if (!found) {
-                for (String diets: des.getDietsSuitableFor()) {
+                for (String diets : des.getDietsSuitableFor()) {
                     if (diets.contains(searchQuery)) {
                         searchResults.add(des);
                         break;
@@ -51,7 +52,13 @@ public class Helpers {
         return searchResults;
     }
 
-    public static List<Dessert> top5 (List<Dessert> allDesserts) {
+    /**
+     * top5 returns a list of the top 5 desserts from the provided list of desserts.
+     *
+     * @param allDesserts - List of all Desserts in the application.
+     * @return - List of Top 5 Dessert based on number of times they are viewed.
+     */
+    public static List<Dessert> top5(List<Dessert> allDesserts) {
         Collections.sort(allDesserts, new NumberViewedComparator());
         return 5 > allDesserts.size() ? allDesserts : allDesserts.stream().limit(5).collect(Collectors.toList());
     }

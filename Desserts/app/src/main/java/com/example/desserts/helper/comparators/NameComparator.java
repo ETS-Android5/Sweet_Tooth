@@ -6,8 +6,10 @@ import java.util.Comparator;
 
 /**
  * NameComparator compares Desserts based on Name.
+ *
+ * @author Osama Kashif
  */
-public class NameComparator  implements Comparator<Dessert> {
+public class NameComparator implements Comparator<Dessert> {
 
     /**
      * @param d1 - Dessert 1 to compare
