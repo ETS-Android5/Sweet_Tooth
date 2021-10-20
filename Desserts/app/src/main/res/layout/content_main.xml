@@ -30,8 +30,7 @@
             android:scaleType="centerCrop"
             android:scaleY="1.1"
             android:tintMode="add"
-            tools:ignore="ImageContrastCheck,SpeakableTextPresentCheck"
-            tools:srcCompat="@drawable/cake7_2" />
+            android:background="@drawable/cake7_2"/>
 <!--            app:tint="@drawable/ic_baseline_dimeffect"-->
 
         <ImageButton
@@ -44,8 +43,7 @@
             android:scaleType="centerCrop"
             android:scaleY="1.1"
             android:tintMode="add"
-            tools:ignore="ImageContrastCheck"
-            tools:srcCompat="@drawable/coffee4_3" />
+            android:background="@drawable/coffee4_3" />
 <!--            app:tint="@drawable/ic_baseline_dimeffect"-->
 
         <ImageButton
@@ -57,8 +55,7 @@
             android:scaleType="centerCrop"
             android:scaleY="1.1"
             android:tintMode="add"
-            tools:ignore="SpeakableTextPresentCheck"
-            tools:srcCompat="@drawable/icecream3_2" />
+            android:background="@drawable/icecream3_2" />
 <!--            app:tint="@drawable/ic_baseline_dimeffect"-->
 
     </LinearLayout>
