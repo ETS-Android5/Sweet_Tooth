@@ -1,5 +1,8 @@
 package com.example.desserts.structures;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +10,7 @@ import java.util.List;
  * dependency injection. It mostly has getters for features common for each dessert.
  * @author Osama Kashif
  */
-public interface Dessert {
+public interface Dessert extends Serializable{
 
     /**
      * Gets the name of the Dessert.

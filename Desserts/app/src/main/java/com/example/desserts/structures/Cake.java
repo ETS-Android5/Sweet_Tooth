@@ -8,7 +8,7 @@ import java.util.List;
  * Cake is a concrete Dessert class inheriting Edible.
  * @author Osama Kashif
  */
-public class Cake extends Edible{
+public class Cake extends Edible {
 
     private final int weight;
     private final int slice;
