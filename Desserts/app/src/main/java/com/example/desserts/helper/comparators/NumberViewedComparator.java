@@ -16,7 +16,7 @@ public class NumberViewedComparator implements Comparator<Dessert> {
      */
     @Override
     public int compare(Dessert d1, Dessert d2) {
-        return Math.toIntExact(d1.getNumberViewed() - d2.getNumberViewed());
+        return Math.toIntExact(-(d1.getNumberViewed() - d2.getNumberViewed()));
     }
 
 }
