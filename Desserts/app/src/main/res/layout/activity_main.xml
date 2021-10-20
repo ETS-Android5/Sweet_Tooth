@@ -29,44 +29,45 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar">
 
-        <Button
-            android:id="@+id/button_cakes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Go to Cakes list"
-            app:layout_constraintBottom_toTopOf="@id/button_drinks"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_first" />
+<!--        <Button-->
+<!--            android:id="@+id/button_cakes"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Go to Cakes list"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/button_drinks"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/textview_first" />-->
 
-        <Button
-            android:id="@+id/button_drinks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Go to Drinks list"
-            app:layout_constraintBottom_toTopOf="@+id/button_frozen"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_drinks" />
+<!--        <Button-->
+<!--            android:id="@+id/button_drinks"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Go to Drinks list"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/button_frozen"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/button_drinks" />-->
 
-        <Button
-            android:id="@+id/button_frozen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Go to Frozen list"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_drinks" />
+<!--        <Button-->
+<!--            android:id="@+id/button_frozen"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Go to Frozen list"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/button_drinks" />-->
 
-        <TextView
-            android:id="@+id/textview_first"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MainActivity"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <TextView-->
+<!--            android:id="@+id/textview_first"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="MainActivity"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <include layout="@layout/content_main"></include>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

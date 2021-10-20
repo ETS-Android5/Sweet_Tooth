@@ -23,6 +23,7 @@ import com.example.desserts.structures.Dessert;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -52,28 +53,52 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        // (OLD) Category buttons
+//        Button cakesListButton = findViewById(R.id.button_cakes);
+//        cakesListButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(MainActivity.this, "Cakes list loading...", Toast.LENGTH_SHORT).show();
+//                selectedCategory = "cakes";
+//                switchToListActivity();
+//            }
+//        });
+//
+//        Button drinksListButton = findViewById(R.id.button_drinks);
+//        drinksListButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(MainActivity.this, "Drinks list loading...", Toast.LENGTH_SHORT).show();
+//                selectedCategory = "drinks";
+//                switchToListActivity();
+//            }
+//        });
+//
+//        Button frozenListButton = findViewById(R.id.button_frozen);
+//        frozenListButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(MainActivity.this, "Frozen list loading...", Toast.LENGTH_SHORT).show();
+//                selectedCategory = "frozen";
+//                switchToListActivity();
+//            }
+//        });
         // Category buttons
-        Button cakesListButton = findViewById(R.id.button_cakes);
-        cakesListButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Cakes list loading...", Toast.LENGTH_SHORT).show();
-                selectedCategory = "cakes";
-                switchToListActivity();
-            }
+        ImageButton cakesListButton = findViewById(R.id.button_cakes);
+        cakesListButton.setOnClickListener(v -> {
+            Toast.makeText(MainActivity.this, "Cakes list loading...", Toast.LENGTH_SHORT).show();
+            selectedCategory = "cakes";
+            switchToListActivity();
         });
 
-        Button drinksListButton = findViewById(R.id.button_drinks);
-        drinksListButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Drinks list loading...", Toast.LENGTH_SHORT).show();
-                selectedCategory = "drinks";
-                switchToListActivity();
-            }
+        ImageButton drinksListButton = findViewById(R.id.button_drinks);
+        drinksListButton.setOnClickListener(v -> {
+            Toast.makeText(MainActivity.this, "Drinks list loading...", Toast.LENGTH_SHORT).show();
+            selectedCategory = "drinks";
+            switchToListActivity();
         });
 
-        Button frozenListButton = findViewById(R.id.button_frozen);
+        ImageButton frozenListButton = findViewById(R.id.button_frozen);
         frozenListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
