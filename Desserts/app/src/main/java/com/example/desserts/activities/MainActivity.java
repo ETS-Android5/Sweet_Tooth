@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Dessert> drinks = new ArrayList<>();
     private List<Dessert> searchResults = new ArrayList<>();
     private TopViewedAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Dynamically set up the top 5 most viewed items
         RecyclerView recyclerView = findViewById(R.id.topViewedDesserts);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
         adapter = new TopViewedAdapter(Helpers.top5(allDesserts));
         recyclerView.setAdapter(adapter);
 

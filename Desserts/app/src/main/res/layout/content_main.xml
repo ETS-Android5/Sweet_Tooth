@@ -26,6 +26,7 @@
             android:layout_height="400dp"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
+            android:background="@drawable/cake7_2"
             android:paddingEnd="1dp"
             android:scaleType="centerCrop"
             android:scaleY="1.1"
