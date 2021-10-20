@@ -15,7 +15,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import com.example.desserts.database.DBLoader;
 import com.example.desserts.databinding.ActivityMainBinding;
+import com.example.desserts.structures.Dessert;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,11 +25,17 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private String selectedCategory;
+    private List<Dessert> cakes = DBLoader.getAllCakes();
+    private List<Dessert> iceCream = DBLoader.getAllIceCreams();
+    private List<Dessert> teas = DBLoader.getAllTeas();
+    private List<Dessert> coffees = DBLoader.getAllCoffees();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
