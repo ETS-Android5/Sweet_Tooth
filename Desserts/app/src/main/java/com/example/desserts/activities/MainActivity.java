@@ -114,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "query submit", Toast.LENGTH_SHORT).show();
                 String searchQuery = mSearchView.getQuery().toString();
                 searchResults = Helpers.search(allDesserts,searchQuery);
+                selectedCategory = "searchResults";
+                switchToListActivity();
                 return true;
             }
 
