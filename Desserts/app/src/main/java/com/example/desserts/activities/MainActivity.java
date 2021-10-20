@@ -39,13 +39,14 @@ public class MainActivity extends AppCompatActivity {
     private String selectedCategory;
     private List<Dessert> cakes = new ArrayList<>();
     private List<Dessert> iceCream = new ArrayList<>();
-    private List<Dessert> teas = new ArrayList<>();
-    private List<Dessert> coffees = new ArrayList<>();
+    private List<Dessert> tea = new ArrayList<>();
+    private List<Dessert> coffee = new ArrayList<>();
     private SearchView mSearchView;
     private List<Dessert> allDesserts = new ArrayList<>();
     private List<Dessert> frozen = new ArrayList<>();
     private List<Dessert> drinks = new ArrayList<>();
     private List<Dessert> searchResults = new ArrayList<>();
+    private TopViewedAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +58,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         cakes = (List<Dessert>) intent.getSerializableExtra("cakes");
         iceCream = (List<Dessert>) intent.getSerializableExtra("iceCream");
-        teas = (List<Dessert>) intent.getSerializableExtra("teas");
-        coffees = (List<Dessert>) intent.getSerializableExtra("coffees");
+        tea = (List<Dessert>) intent.getSerializableExtra("tea");
+        coffee = (List<Dessert>) intent.getSerializableExtra("coffee");
 
         frozen = iceCream;
-        drinks.addAll(teas);
-        drinks.addAll(coffees);
+        drinks.addAll(tea);
+        drinks.addAll(coffee);
         allDesserts.addAll(cakes);
         allDesserts.addAll(frozen);
         allDesserts.addAll(drinks);
@@ -73,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        // Dynamically set up the top 5 most viewed items
+        RecyclerView recyclerView = findViewById(R.id.topViewedDesserts);
+        adapter = new TopViewedAdapter(Helpers.top5(allDesserts));
+        recyclerView.setAdapter(adapter);
 
         // Category buttons
         ImageButton cakesListButton = findViewById(R.id.button_cakes);
