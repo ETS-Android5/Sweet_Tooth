@@ -15,7 +15,11 @@ import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.desserts.activities.adaptors.TopViewedAdapter;
 import com.example.desserts.database.DBLoader;
 import com.example.desserts.databinding.ActivityMainBinding;
 import com.example.desserts.helper.Helpers;
@@ -31,6 +35,7 @@ import android.widget.Toast;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Dessert> frozen = new ArrayList<>();
     private List<Dessert> drinks = new ArrayList<>();
     private List<Dessert> searchResults = new ArrayList<>();
+    private TopViewedAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +79,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        // Dynamically set up the top 5 most viewed items
+        RecyclerView recyclerView = findViewById(R.id.topViewedDesserts);
+        adapter = new TopViewedAdapter(Helpers.top5(allDesserts));
+        recyclerView.setAdapter(adapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager);
 
         // Category buttons
         ImageButton cakesListButton = findViewById(R.id.button_cakes);
