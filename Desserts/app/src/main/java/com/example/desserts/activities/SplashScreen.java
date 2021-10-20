@@ -53,6 +53,5 @@ public class SplashScreen extends Activity {
         switchActivityIntent.putExtra("teas", (Serializable) teas);
         switchActivityIntent.putExtra("coffees", (Serializable) coffees);
         startActivity(switchActivityIntent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }
