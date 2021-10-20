@@ -28,9 +28,10 @@ public class Tea extends Drinkable {
      * @param sugar                - Sugar in one serving of Tea
      * @param toppings             - Toppings on Tea
      * @param teaBase              - Tea base for the Tea
+     * @param category             - Dessert category
      */
-    public Tea(String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int volume, int ice, int sugar, List<String> toppings, String teaBase) {
-        super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings);
+    public Tea(String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int volume, int ice, int sugar, List<String> toppings, String teaBase, String category) {
+        super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings, category);
         this.teaBase = teaBase;
         this.addDescription(this.specificDescription());
     }

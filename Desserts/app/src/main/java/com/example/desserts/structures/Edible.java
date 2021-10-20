@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * The Edible abstract class implements the Dessert Interface and is used to have the common
  * features for edible dessert items.
+ *
  * @author Osama Kashif
  */
 abstract class Edible implements Dessert {
@@ -18,19 +19,22 @@ abstract class Edible implements Dessert {
     private final List<String> dietsSuitableFor;
     private long numberViewed;
     private final int peopleServed;
+    private String category;
 
     /**
      * Constructor for Edible Dessert.
-     * @param name - name of Edible Dessert
-     * @param Id - ID of Edible Dessert
-     * @param cost - Cost of Edible Dessert
-     * @param basicDescription - Basic Description of Edible Dessert
+     *
+     * @param name                 - name of Edible Dessert
+     * @param Id                   - ID of Edible Dessert
+     * @param cost                 - Cost of Edible Dessert
+     * @param basicDescription     - Basic Description of Edible Dessert
      * @param ingredientsContained - Ingredients Contained in the Edible Dessert
-     * @param dietsSuitableFor - Diets the Edible Dessert is Suitable For
-     * @param numberViewed - Number of times the Edible Dessert has been viewed
-     * @param peopleServed - People served by 1 serving of the Edible Dessert
+     * @param dietsSuitableFor     - Diets the Edible Dessert is Suitable For
+     * @param numberViewed         - Number of times the Edible Dessert has been viewed
+     * @param peopleServed         - People served by 1 serving of the Edible Dessert
+     * @param category             - Dessert category
      */
-    public Edible (String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed) {
+    public Edible(String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, String category) {
         this.name = name;
         this.Id = Id;
         this.cost = cost;
@@ -39,10 +43,12 @@ abstract class Edible implements Dessert {
         this.dietsSuitableFor = dietsSuitableFor;
         this.numberViewed = numberViewed;
         this.peopleServed = peopleServed;
+        this.category = category;
     }
 
     /**
      * Gets the name of the Dessert.
+     *
      * @return String name of Dessert
      */
     public String getName() {
@@ -51,6 +57,7 @@ abstract class Edible implements Dessert {
 
     /**
      * Gets the ID of the Edible Dessert.
+     *
      * @return long ID.
      */
     public long getId() {
@@ -59,6 +66,7 @@ abstract class Edible implements Dessert {
 
     /**
      * Gets the cost of the Dessert.
+     *
      * @return double cost.
      */
     public double getCost() {
@@ -67,6 +75,7 @@ abstract class Edible implements Dessert {
 
     /**
      * Gets the description of the Edible Dessert.
+     *
      * @return String description
      */
     public String getDescription() {
@@ -78,7 +87,8 @@ abstract class Edible implements Dessert {
     }
 
     /**
-     *  Gets basic description of the Edible Dessert.
+     * Gets basic description of the Edible Dessert.
+     *
      * @return String basic Description of Edible Dessert.
      */
     public String getBasicDescription() {
@@ -87,14 +97,16 @@ abstract class Edible implements Dessert {
 
     /**
      * Used to edit the full description of the Edible Dessert.
+     *
      * @param description - To enter the full custom description of the Edible Dessert.
      */
-    public void addDescription (String description) {
+    public void addDescription(String description) {
         this.description = description;
     }
 
     /**
      * Gets some of the ingredients contained in the Edible Dessert for allergy reasons.
+     *
      * @return List of Ingredients Contained
      */
     public List<String> getContainedIngredients() {
@@ -103,6 +115,7 @@ abstract class Edible implements Dessert {
 
     /**
      * Gets the diets the Edible Dessert is suitable for.
+     *
      * @return List of Diets the Edible Dessert is suitable for
      */
     public List<String> getDietsSuitableFor() {
@@ -111,6 +124,7 @@ abstract class Edible implements Dessert {
 
     /**
      * Gets the number of times the Edible Dessert has been viewed.
+     *
      * @return long number viewed.
      */
     public long getNumberViewed() {
@@ -120,15 +134,26 @@ abstract class Edible implements Dessert {
     /**
      * Increases the number of people who viewed the app at runtime.
      */
-    public void increaseNumberViewed() {numberViewed++;}
+    public void increaseNumberViewed() {
+        numberViewed++;
+    }
 
     /**
      * Gets the people served by the Edible Dessert.
      * Specific for  Edible Desserts.
+     *
      * @return Number of people served by one serving of the Edible Dessert
      */
     public String getAdditionalDetails() {
         return ("People served: " + peopleServed);
     }
 
+    /**
+     * Gets the Dessert category.
+     *
+     * @return - Returns category of the Dessert.
+     */
+    public String getCategory() {
+        return category;
+    }
 }

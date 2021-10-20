@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Cake is a concrete Dessert class inheriting Edible.
+ *
  * @author Osama Kashif
  */
 public class Cake extends Edible {
@@ -15,19 +16,21 @@ public class Cake extends Edible {
 
     /**
      * Constructor for Cake
-     * @param name - Name of Cake
-     * @param Id - ID of Cake
-     * @param cost - Cost of Cake
-     * @param basicDescription - Basic Description of Cake
+     *
+     * @param name                 - Name of Cake
+     * @param Id                   - ID of Cake
+     * @param cost                 - Cost of Cake
+     * @param basicDescription     - Basic Description of Cake
      * @param ingredientsContained - Ingredients contained in Cake
-     * @param dietsSuitableFor - Diets Cake is suitable for
-     * @param numberViewed - Number of times the Cake is viewed
-     * @param peopleServed - People served by one serving of Cake
-     * @param weight - Weight of one serving of Cake
-     * @param slice - Number of slices in a serving of Cake
+     * @param dietsSuitableFor     - Diets Cake is suitable for
+     * @param numberViewed         - Number of times the Cake is viewed
+     * @param peopleServed         - People served by one serving of Cake
+     * @param weight               - Weight of one serving of Cake
+     * @param slice                - Number of slices in a serving of Cake
+     * @param category             - Dessert category
      */
-    public Cake (String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int weight, int slice) {
-        super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed);
+    public Cake(String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int weight, int slice, String category) {
+        super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed, category);
         this.weight = weight;
         this.slice = slice;
         this.addDescription(this.specificDescription());
@@ -35,6 +38,7 @@ public class Cake extends Edible {
 
     /**
      * Method to construct the customised full description for Cake.
+     *
      * @return Full custom description for Cake
      */
     private String specificDescription() {

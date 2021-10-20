@@ -49,7 +49,7 @@ public class DBLoader {
                                     int peopleServed = (Math.toIntExact((long) document.get("peopleServed")));
                                     int weight = (Math.toIntExact((long) document.get("weight")));
                                     int slice = (Math.toIntExact((long) document.get("slice")));
-                                    cakes.add(new Cake(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed, weight, slice));
+                                    cakes.add(new Cake(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed, weight, slice, "cake"));
                                 } catch (NullPointerException e) {
                                     e.printStackTrace();
                                 }
@@ -85,7 +85,7 @@ public class DBLoader {
                                     int peopleServed = (Math.toIntExact((long) document.get("peopleServed")));
                                     int scoops = (Math.toIntExact((long) document.get("scoops")));
                                     boolean cone = (boolean) document.get("cone");
-                                    iceCream.add(new IceCream(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed, scoops, cone));
+                                    iceCream.add(new IceCream(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed, scoops, cone, "icecream"));
                                 } catch (NullPointerException e) {
                                     e.printStackTrace();
                                 }
@@ -123,7 +123,7 @@ public class DBLoader {
                                     int sugar = (Math.toIntExact((long) document.get("sugar")));
                                     List<String> toppings = (List<String>) document.get("toppings");
                                     String teaBase = (String) document.get("teaBase");
-                                    tea.add(new Tea(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings, teaBase));
+                                    tea.add(new Tea(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings, teaBase, "tea"));
                                 } catch (NullPointerException e) {
                                     e.printStackTrace();
                                 }
@@ -161,7 +161,7 @@ public class DBLoader {
                                     int sugar = (Math.toIntExact((long) document.get("sugar")));
                                     List<String> toppings = (List<String>) document.get("toppings");
                                     int coffeePercent = (Math.toIntExact((long) document.get("coffeePercent")));
-                                    coffee.add(new Coffee(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings, coffeePercent));
+                                    coffee.add(new Coffee(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings, coffeePercent, "coffee"));
                                 } catch (NullPointerException e) {
                                     e.printStackTrace();
                                 }
