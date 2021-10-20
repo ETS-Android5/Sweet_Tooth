@@ -73,7 +73,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         title.setText(currentItem.getName());
 
 //        this.category + currentItem.getId() + "_1";
-        String imageName = this.category + currentItem.getId() + "_1";
+        String imageName = currentItem.getCategory() + currentItem.getId() + "_1";
         int id;
         try {
             id = R.drawable.class.getField(imageName).getInt(null);
