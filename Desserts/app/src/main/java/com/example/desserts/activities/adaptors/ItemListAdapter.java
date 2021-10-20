@@ -69,7 +69,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         TextView prevTitle = holder.prevTextView;
         TextView nextTitle = holder.nextTextView;
 
-        price.setText("$$" + currentItem.getCost());
+        price.setText("$" + currentItem.getCost());
         title.setText(currentItem.getName());
 
 //        this.category + currentItem.getId() + "_1";
