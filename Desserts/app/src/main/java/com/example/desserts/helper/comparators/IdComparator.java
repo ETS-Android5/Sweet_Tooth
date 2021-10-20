@@ -6,8 +6,10 @@ import java.util.Comparator;
 
 /**
  * IdComparator compares Desserts based on Id.
+ *
+ * @author Osama Kashif
  */
-public class IdComparator  implements Comparator<Dessert> {
+public class IdComparator implements Comparator<Dessert> {
 
     /**
      * @param d1 - Dessert 1 to compare

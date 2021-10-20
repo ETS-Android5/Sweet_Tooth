@@ -6,6 +6,8 @@ import java.util.Comparator;
 
 /**
  * NumberViewedComparator compares Desserts based on NumberViewed.
+ *
+ * @author Osama Kashif
  */
 public class NumberViewedComparator implements Comparator<Dessert> {
 
