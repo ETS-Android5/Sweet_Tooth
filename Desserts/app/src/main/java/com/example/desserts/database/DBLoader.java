@@ -229,5 +229,4 @@ public class DBLoader {
         loadCoffee(coffees);
         return coffees;
     }
-
 }

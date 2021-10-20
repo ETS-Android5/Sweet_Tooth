@@ -35,10 +35,10 @@ public class CakesFragment extends Fragment {
 
 //        binding = FragmentCakesBinding.inflate(inflater, container, false);
 
-
 //        List<Dessert> cakesList = DBLoader.getAllCakes();
 //        MockDataSet mockDataSet = new MockDataSet();
 //        List<Dessert> cakesList = mockDataSet.getItems();
+//        List<Dessert> cakesList = DBLoader.getAllCakes();
         view = inflater.inflate(R.layout.fragment_cakes, container, false);
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.cake_listview);
         ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, "cake");
