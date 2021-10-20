@@ -12,16 +12,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desserts.R;
 import com.example.desserts.activities.adaptors.ItemListAdapter;
+import com.example.desserts.database.DBLoader;
 import com.example.desserts.databinding.FragmentCakesBinding;
 import com.example.desserts.structures.Dessert;
-import com.example.desserts.structures.MockDataSet;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.crypto.spec.DESKeySpec;
 
 public class CakesFragment extends Fragment {
 
     private FragmentCakesBinding binding;
     private View view;
+    private List<Dessert> cakesList = new ArrayList<>();
 
     @Override
     public View onCreateView(
@@ -32,9 +36,9 @@ public class CakesFragment extends Fragment {
 //        binding = FragmentCakesBinding.inflate(inflater, container, false);
 
 
-//        List<Dessert> cakesList = DBLoader.getAllCake();
-        MockDataSet mockDataSet = new MockDataSet();
-        List<Dessert> cakesList = mockDataSet.getItems();
+//        List<Dessert> cakesList = DBLoader.getAllCakes();
+//        MockDataSet mockDataSet = new MockDataSet();
+//        List<Dessert> cakesList = mockDataSet.getItems();
         view = inflater.inflate(R.layout.fragment_cakes, container, false);
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.cake_listview);
         ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, "cake");
@@ -61,6 +65,10 @@ public class CakesFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public void populateCakes(List<Dessert> cakes) {
+        cakesList = cakes;
     }
 
 }

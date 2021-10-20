@@ -1,5 +1,6 @@
 package com.example.desserts.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import com.example.desserts.activities.fragments.CakesFragment;
 import com.example.desserts.activities.fragments.DrinksFragment;
 import com.example.desserts.activities.fragments.FrozenFragment;
 import com.example.desserts.databinding.ActivityListBinding;
+import com.example.desserts.structures.Dessert;
 
 import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
@@ -19,6 +21,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
@@ -41,11 +45,18 @@ public class ListActivity extends AppCompatActivity {
         // Dynamically load the fragment
         Bundle extras = getIntent().getExtras();
         String category = extras.getString("category");
+        Intent intent = getIntent();
+        List<Dessert> cakes = (List<Dessert>) intent.getSerializableExtra("cakes");
+        List<Dessert> iceCream = (List<Dessert>) intent.getSerializableExtra("iceCream");
+        List<Dessert> teas = (List<Dessert>) intent.getSerializableExtra("teas");
+        List<Dessert> coffees = (List<Dessert>) intent.getSerializableExtra("coffees");
         if (category != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (category) {
                 case "cakes":
-                    ft.replace(R.id.list_fragment_placeholder, new CakesFragment());
+                    CakesFragment cF = new CakesFragment();
+                    cF.populateCakes(cakes);
+                    ft.replace(R.id.list_fragment_placeholder, cF);
                     break;
                 case "drinks":
                     ft.replace(R.id.list_fragment_placeholder, new DrinksFragment());

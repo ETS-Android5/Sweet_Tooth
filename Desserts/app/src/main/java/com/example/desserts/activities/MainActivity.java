@@ -7,6 +7,7 @@ import com.example.desserts.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Parcelable;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
@@ -25,6 +26,7 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -130,6 +132,12 @@ public class MainActivity extends AppCompatActivity {
     private void switchToListActivity() {
         Intent switchActivityIntent = new Intent(this, ListActivity.class);
         switchActivityIntent.putExtra("category", selectedCategory);
+        switchActivityIntent.putExtra("cakes", (Serializable) cakes);
+        switchActivityIntent.putExtra("iceCream", (Serializable) iceCream);
+        switchActivityIntent.putExtra("teas", (Serializable) teas);
+        switchActivityIntent.putExtra("coffees", (Serializable) coffees);
+//        Bundle bundle = new Bundle();
+//        bundle.putParcelable("cakes", cakes);
         startActivity(switchActivityIntent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
