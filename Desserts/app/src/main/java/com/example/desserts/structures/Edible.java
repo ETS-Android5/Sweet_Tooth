@@ -11,7 +11,7 @@ abstract class Edible implements Dessert {
 
     private final String name;
     private final long Id;
-    private final float cost;
+    private final double cost;
     private final String basicDescription;
     private String description = null;
     private final List<String> ingredientsContained;
@@ -30,7 +30,7 @@ abstract class Edible implements Dessert {
      * @param numberViewed - Number of times the Edible Dessert has been viewed
      * @param peopleServed - People served by 1 serving of the Edible Dessert
      */
-    public Edible (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed) {
+    public Edible (String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed) {
         this.name = name;
         this.Id = Id;
         this.cost = cost;
@@ -59,9 +59,9 @@ abstract class Edible implements Dessert {
 
     /**
      * Gets the cost of the Dessert.
-     * @return float cost.
+     * @return double cost.
      */
-    public float getCost() {
+    public double getCost() {
         return cost;
     }
 

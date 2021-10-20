@@ -11,13 +11,13 @@ abstract class Drinkable implements Dessert {
 
     private final String name;
     private final long Id;
-    private final float cost;
+    private final double cost;
     private final String basicDescription;
     private String description = null;
     private final List<String> ingredientsContained;
     private final List<String> dietsSuitableFor;
     private long numberViewed;
-    private final float volume;
+    private final long volume;
     private final int ice;
     private final int sugar;
     private final List<String> toppings;
@@ -36,7 +36,7 @@ abstract class Drinkable implements Dessert {
      * @param sugar - Sugar in Drinkable Dessert
      * @param toppings - Toppings for the Drinkable Dessert
      */
-    public Drinkable (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, float volume, int ice, int sugar, List<String> toppings) {
+    public Drinkable (String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int volume, int ice, int sugar, List<String> toppings) {
         this.name = name;
         this.Id = Id;
         this.cost = cost;
@@ -68,9 +68,9 @@ abstract class Drinkable implements Dessert {
 
     /**
      * Gets the cost of the Drinkable Dessert.
-     * @return float cost.
+     * @return double cost.
      */
-    public float getCost() {
+    public double getCost() {
         return cost;
     }
 

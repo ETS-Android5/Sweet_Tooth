@@ -25,12 +25,12 @@ import java.util.Objects;
 public class DBLoader {
 
     /**
-     * Gets list of all Cake.
+     * Loads cake objects into cakes list.
      *
-     * @return Dessert List of Cake
+     * @param cakes
      */
-    public static List<Dessert> getAllCake() {
-        List<Dessert> cakes = new ArrayList<>();
+    public static void loadCakes(List<Dessert> cakes) {
+        FirebaseFirestore.setLoggingEnabled(true);
         FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
         dessertDBFirestore.collection("Desserts").document("Edible").collection("Cake").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -41,14 +41,14 @@ public class DBLoader {
                                 try {
                                     String name = (String) document.get("name");
                                     long id = (long) document.get("id");
-                                    float cost = (float) document.get("cost");
+                                    double cost = (double) document.get("cost");
                                     String basicDescription = (String) document.get("basicDescription");
                                     List<String> ingredientsContained = (List<String>) document.get("ingredientsContained");
                                     List<String> dietsSuitableFor = (List<String>) document.get("dietsSuitableFor");
                                     long numberViewed = (long) document.get("numberViewed");
-                                    int peopleServed = (int) document.get("peopleServed");
-                                    int weight = (int) document.get("weight");
-                                    int slice = (int) document.get("slice");
+                                    int peopleServed = (Math.toIntExact((long) document.get("peopleServed")));
+                                    int weight = (Math.toIntExact((long) document.get("weight")));
+                                    int slice = (Math.toIntExact((long) document.get("slice")));
                                     cakes.add(new Cake(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed, weight, slice));
                                 } catch (NullPointerException e) {
                                     e.printStackTrace();
@@ -59,16 +59,14 @@ public class DBLoader {
                         }
                     }
                 });
-        return cakes;
     }
 
     /**
-     * Gets list of all IceCream.
+     * Loads ice cream objects into ice cream list.
      *
-     * @return Dessert List of IceCream
+     * @param iceCream - Dessert List to be filled.
      */
-    public static List<Dessert> getAllIceCream() {
-        List<Dessert> iceCream = new ArrayList<>();
+    public static void loadIceCream(List<Dessert> iceCream) {
         FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
         dessertDBFirestore.collection("Desserts").document("Edible").collection("Ice cream").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -79,13 +77,13 @@ public class DBLoader {
                                 try {
                                     String name = (String) document.get("name");
                                     long id = (long) document.get("id");
-                                    float cost = (float) document.get("cost");
+                                    double cost = (double) document.get("cost");
                                     String basicDescription = (String) document.get("basicDescription");
                                     List<String> ingredientsContained = (List<String>) document.get("ingredientsContained");
                                     List<String> dietsSuitableFor = (List<String>) document.get("dietsSuitableFor");
                                     long numberViewed = (long) document.get("numberViewed");
-                                    int peopleServed = (int) document.get("peopleServed");
-                                    int scoops = (int) document.get("scoops");
+                                    int peopleServed = (Math.toIntExact((long) document.get("peopleServed")));
+                                    int scoops = (Math.toIntExact((long) document.get("scoops")));
                                     boolean cone = (boolean) document.get("cone");
                                     iceCream.add(new IceCream(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed, scoops, cone));
                                 } catch (NullPointerException e) {
@@ -97,18 +95,16 @@ public class DBLoader {
                         }
                     }
                 });
-        return iceCream;
     }
 
     /**
-     * Gets list of all Tea.
+     * Loads tea objects into tea list.
      *
-     * @return Dessert List of Tea
+     * @param tea - Dessert List to be filled.
      */
-    public static List<Dessert> getAllTea() {
-        List<Dessert> tea = new ArrayList<>();
+    public static void loadTea(List<Dessert> tea) {
         FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
-        dessertDBFirestore.collection("Desserts").document("Edible").collection("Tea").get()
+        dessertDBFirestore.collection("Desserts").document("Drinkable").collection("Tea").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -117,14 +113,14 @@ public class DBLoader {
                                 try {
                                     String name = (String) document.get("name");
                                     long id = (long) document.get("id");
-                                    float cost = (float) document.get("cost");
+                                    double cost = (double) document.get("cost");
                                     String basicDescription = (String) document.get("basicDescription");
                                     List<String> ingredientsContained = (List<String>) document.get("ingredientsContained");
                                     List<String> dietsSuitableFor = (List<String>) document.get("dietsSuitableFor");
                                     long numberViewed = (long) document.get("numberViewed");
-                                    float volume = (float) document.get("volume");
-                                    int ice = (int) document.get("ice");
-                                    int sugar = (int) document.get("sugar");
+                                    int volume = (Math.toIntExact((long) document.get("volume")));
+                                    int ice = (Math.toIntExact((long) document.get("ice")));
+                                    int sugar = (Math.toIntExact((long) document.get("sugar")));
                                     List<String> toppings = (List<String>) document.get("toppings");
                                     String teaBase = (String) document.get("teaBase");
                                     tea.add(new Tea(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings, teaBase));
@@ -137,18 +133,16 @@ public class DBLoader {
                         }
                     }
                 });
-        return tea;
     }
 
     /**
-     * Gets list of all Coffee.
+     * Loads coffee objects into coffee list.
      *
-     * @return Dessert List of Coffee
+     * @param coffee - Dessert List to be filled.
      */
-    public static List<Dessert> getAllCoffee() {
-        List<Dessert> coffee = new ArrayList<>();
+    public static void loadCoffee(List<Dessert> coffee) {
         FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
-        dessertDBFirestore.collection("Desserts").document("Edible").collection("Coffee").get()
+        dessertDBFirestore.collection("Desserts").document("Drinkable").collection("Coffee").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -157,16 +151,16 @@ public class DBLoader {
                                 try {
                                     String name = (String) document.get("name");
                                     long id = (long) document.get("id");
-                                    float cost = (float) document.get("cost");
+                                    double cost = (double) (double) document.get("cost");
                                     String basicDescription = (String) document.get("basicDescription");
                                     List<String> ingredientsContained = (List<String>) document.get("ingredientsContained");
                                     List<String> dietsSuitableFor = (List<String>) document.get("dietsSuitableFor");
                                     long numberViewed = (long) document.get("numberViewed");
-                                    float volume = (float) document.get("volume");
-                                    int ice = (int) document.get("ice");
-                                    int sugar = (int) document.get("sugar");
+                                    int volume = (Math.toIntExact((long) document.get("volume")));
+                                    int ice = (Math.toIntExact((long) document.get("ice")));
+                                    int sugar = (Math.toIntExact((long) document.get("sugar")));
                                     List<String> toppings = (List<String>) document.get("toppings");
-                                    int coffeePercent = (int) document.get("coffeePercent");
+                                    int coffeePercent = (Math.toIntExact((long) document.get("coffeePercent")));
                                     coffee.add(new Coffee(name, id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings, coffeePercent));
                                 } catch (NullPointerException e) {
                                     e.printStackTrace();
@@ -177,7 +171,6 @@ public class DBLoader {
                         }
                     }
                 });
-        return coffee;
     }
 
     /**
@@ -191,6 +184,50 @@ public class DBLoader {
     public static void addNumberViewed(String abstractClass, String concrete, long id, long numberViewed) {
         FirebaseFirestore dessertDBFirestore = FirebaseFirestore.getInstance();
         dessertDBFirestore.collection("Desserts").document(abstractClass).collection(concrete).document(Long.toString(id)).update("numberViewed", numberViewed);
+    }
+
+    /**
+     * Gets list of all Cake.
+     *
+     * @return Dessert List of Cake
+     */
+    public static List<Dessert> getAllCakes() {
+        List<Dessert> cakes = new ArrayList<>();
+        loadCakes(cakes);
+        return cakes;
+    }
+
+    /**
+     * Gets list of all IceCream.
+     *
+     * @return Dessert List of IceCream
+     */
+    public static List<Dessert> getAllIceCreams() {
+        List<Dessert> iceCreams = new ArrayList<>();
+        loadIceCream(iceCreams);
+        return iceCreams;
+    }
+
+    /**
+     * Gets list of all Tea.
+     *
+     * @return Dessert List of Tea
+     */
+    public static List<Dessert> getAllTeas() {
+        List<Dessert> teas = new ArrayList<>();
+        loadTea(teas);
+        return teas;
+    }
+
+    /**
+     * Gets list of all Coffee.
+     *
+     * @return Dessert List of Coffee
+     */
+    public static List<Dessert> getAllCoffees() {
+        List<Dessert> coffees = new ArrayList<>();
+        loadCoffee(coffees);
+        return coffees;
     }
 
 }

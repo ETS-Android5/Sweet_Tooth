@@ -23,9 +23,9 @@ public interface Dessert {
 
     /**
      * Gets the cost of the Dessert.
-     * @return float cost.
+     * @return double cost.
      */
-    public float getCost();
+    public double getCost();
 
     /**
      * Gets the description of the Dessert.

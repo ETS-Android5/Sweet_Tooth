@@ -25,7 +25,7 @@ public class IceCream extends Edible {
      * @param scoops - Scoops in one serving of IceCream
      * @param cone - If the serving of IceCream is with a cone
      */
-    public IceCream (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int scoops, boolean cone) {
+    public IceCream (String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int scoops, boolean cone) {
         super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed);
         this.scoops = scoops;
         this.cone = cone;

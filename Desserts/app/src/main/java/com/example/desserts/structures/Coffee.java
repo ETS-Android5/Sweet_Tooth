@@ -27,7 +27,7 @@ public class Coffee extends Drinkable {
      * @param toppings - Toppings on Coffee
      * @param percentCoffee - Percentage of Coffee in the Coffee Dessert
      */
-    public Coffee (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, float volume, int ice, int sugar, List<String> toppings, int percentCoffee) {
+    public Coffee (String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int volume, int ice, int sugar, List<String> toppings, int percentCoffee) {
         super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, volume, ice, sugar, toppings);
         this.percentCoffee = percentCoffee;
         this.addDescription(this.specificDescription());

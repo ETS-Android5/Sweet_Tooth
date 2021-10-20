@@ -26,7 +26,7 @@ public class Cake extends Edible{
      * @param weight - Weight of one serving of Cake
      * @param slice - Number of slices in a serving of Cake
      */
-    public Cake (String name, long Id, float cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int weight, int slice) {
+    public Cake (String name, long Id, double cost, String basicDescription, List<String> ingredientsContained, List<String> dietsSuitableFor, long numberViewed, int peopleServed, int weight, int slice) {
         super(name, Id, cost, basicDescription, ingredientsContained, dietsSuitableFor, numberViewed, peopleServed);
         this.weight = weight;
         this.slice = slice;
