@@ -38,7 +38,7 @@ public class CakesFragment extends Fragment {
 //        List<Dessert> cakesList = DBLoader.getAllCakes();
         view = inflater.inflate(R.layout.fragment_list_cakes, container, false);
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.cake_listview);
-        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, "cake", getActivity());
+        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity());
         cakeRecyclerView.setAdapter(itemListAdapter);
         cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
 

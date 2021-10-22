@@ -34,30 +34,37 @@ public class DetailsCakesFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 //        binding = FragmentDetailsCakesBinding.inflate(inflater, container, false);
-        view = inflater.inflate(R.layout.fragment_list_cakes, container, false);
+        view = inflater.inflate(R.layout.fragment_details_cakes, container, false);
+
+        Bundle extras = getActivity().getIntent().getExtras();
+        String category = extras.getString("category");
+        String title = extras.getString("name");
+        String description = extras.getString("description");
+        String price = extras.getString("price");
+        String id = extras.getString("id");
 
         TextView name = (TextView) view.findViewById(R.id.cake_title_details);
-        name.setText(this.name);
+        name.setText(title);
 
-        TextView description = (TextView) view.findViewById(R.id.cake_descrip_details);
-        description.setText(this.description);
+        TextView descriptionText = (TextView) view.findViewById(R.id.cake_descrip_details);
+        descriptionText.setText(description);
 
         TextView cost = (TextView) view.findViewById(R.id.cake_price_text);
-        cost.setText(this.cost);
+        cost.setText(price);
 
-        ImageView image = (ImageView) view.findViewById(R.id.cake_image_card_details);
-        String imageName = this.category + this.id + "_1";
-        int id;
+        ImageView image = (ImageView) view.findViewById(R.id.cake_image_details);
+        String imageName = category + id + "_1";
+        int imageId;
         try {
-            id = R.drawable.class.getField(imageName).getInt(null);
-            image.setImageResource(id);
+            imageId = R.drawable.class.getField(imageName).getInt(null);
+            image.setImageResource(imageId);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
 
-        return binding.getRoot();
+        return view;
 
     }
 

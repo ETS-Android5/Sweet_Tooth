@@ -51,12 +51,19 @@ public class DetailsActivity extends AppCompatActivity {
         String cost = extras.getString("price");
         String id = extras.getString("id");
 
+        System.out.println("listttttttttttttttttttttttttttttttttttttttttt");
+        System.out.println(category);
+        System.out.println(name);
+        System.out.println(description);
+        System.out.println(cost);
+        System.out.println(id);
+
         if (category != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (category) {
-                case "cakes":
+                case "cake":
                     DetailsCakesFragment cF = new DetailsCakesFragment();
-                    cF.populateData(name, category, description, cost, id);
+//                    cF.populateData(name, category, description, cost, id);
                     ft.replace(R.id.details_fragment_placeholder, cF);
                     break;
 //                case "drinks":
