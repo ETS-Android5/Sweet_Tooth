@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,10 +33,6 @@ public class CakesFragment extends Fragment {
 
 //        binding = FragmentCakesBinding.inflate(inflater, container, false);
 
-//        List<Dessert> cakesList = DBLoader.getAllCakes();
-//        MockDataSet mockDataSet = new MockDataSet();
-//        List<Dessert> cakesList = mockDataSet.getItems();
-//        List<Dessert> cakesList = DBLoader.getAllCakes();
         view = inflater.inflate(R.layout.fragment_list_cakes, container, false);
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.cake_listview);
         ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity());

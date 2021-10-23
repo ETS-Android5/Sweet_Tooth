@@ -1,17 +1,22 @@
 package com.example.desserts.activities.fragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desserts.R;
+import com.example.desserts.activities.adaptors.ImageGalleryAdapter;
+import com.example.desserts.activities.adaptors.ItemListAdapter;
 import com.example.desserts.databinding.FragmentDetailsCakesBinding;
 import com.example.desserts.structures.Dessert;
 
@@ -43,26 +48,27 @@ public class DetailsCakesFragment extends Fragment {
         String price = extras.getString("price");
         String id = extras.getString("id");
 
-        TextView name = (TextView) view.findViewById(R.id.cake_title_details);
+        TextView name = view.findViewById(R.id.cake_title_details);
         name.setText(title);
+        name.setTypeface(null, Typeface.BOLD);
+        name.setTextSize(16);
 
-        TextView descriptionText = (TextView) view.findViewById(R.id.cake_descrip_details);
+        TextView descriptionText = view.findViewById(R.id.cake_descrip_details);
         descriptionText.setText(description);
+        descriptionText.setPadding(56,0,48,0);
 
-        TextView cost = (TextView) view.findViewById(R.id.cake_price_text);
+        TextView cost = view.findViewById(R.id.cake_price_text);
         cost.setText(price);
+        cost.setTypeface(null, Typeface.BOLD);
 
-        ImageView image = (ImageView) view.findViewById(R.id.cake_image_details);
-        String imageName = category + id + "_1";
-        int imageId;
-        try {
-            imageId = R.drawable.class.getField(imageName).getInt(null);
-            image.setImageResource(imageId);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
+        List<String> images = new ArrayList<>();
+        images.add(category + id + "_1");
+        images.add(category + id + "_2");
+        images.add(category + id + "_3");
+        RecyclerView cakeRecyclerView = view.findViewById(R.id.cake_image_details);
+        ImageGalleryAdapter imageGalleryAdapter = new ImageGalleryAdapter(images, getActivity());
+        cakeRecyclerView.setAdapter(imageGalleryAdapter);
+        cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
 
         return view;
 
