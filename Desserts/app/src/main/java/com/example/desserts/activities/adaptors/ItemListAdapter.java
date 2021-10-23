@@ -42,9 +42,9 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
                     viewItem = itemView.findViewById(R.id.imageView);
                     break;
                 case "drinks":
-                    priceTextView = itemView.findViewById(R.id.cake_price);
-                    titleTextView = itemView.findViewById(R.id.cake_mid_title);
-                    imageView = itemView.findViewById(R.id.cake_image);
+                    priceTextView = itemView.findViewById(R.id.drink_price);
+                    titleTextView = itemView.findViewById(R.id.drink_mid_title);
+                    imageView = itemView.findViewById(R.id.drink_image);
                     viewItem = itemView.findViewById(R.id.imageView);
                     break;
                 default:
@@ -84,7 +84,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
                 dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_frozen_list_item, parent, false);
                 break;
             case "drinks":
-                dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cake_list_item, parent, false);
+                dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_drink_list_item, parent, false);
                 break;
             default:
                 dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cake_list_item, parent, false);
