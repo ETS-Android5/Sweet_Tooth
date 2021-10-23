@@ -65,6 +65,12 @@ public class DetailsCakesFragment extends Fragment {
         ImageGalleryAdapter imageGalleryAdapter = new ImageGalleryAdapter(images, getActivity());
         cakeRecyclerView.setAdapter(imageGalleryAdapter);
         cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
+        view.findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().onBackPressed();
+            }
+        });
 
         return view;
 
