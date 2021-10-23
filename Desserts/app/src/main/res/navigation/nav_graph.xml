@@ -19,7 +19,7 @@
         android:id="@+id/SecondFragment"
         android:name="com.example.desserts.activities.fragments.DrinksFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_drinks">
+        tools:layout="@layout/fragment_list_drinks">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"

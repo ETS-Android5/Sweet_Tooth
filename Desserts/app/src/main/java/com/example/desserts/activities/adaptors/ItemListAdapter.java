@@ -24,13 +24,36 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         public ImageView imageView;
         public ImageView viewItem;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, String category) {
             super(itemView);
 
-            priceTextView = itemView.findViewById(R.id.cake_price);
-            titleTextView = itemView.findViewById(R.id.cake_mid_title);
-            imageView = itemView.findViewById(R.id.cake_image);
-            viewItem = itemView.findViewById(R.id.imageView);
+            switch (category)
+            {
+                case "cake":
+                    priceTextView = itemView.findViewById(R.id.cake_price);
+                    titleTextView = itemView.findViewById(R.id.cake_mid_title);
+                    imageView = itemView.findViewById(R.id.cake_image);
+                    viewItem = itemView.findViewById(R.id.imageView);
+                    break;
+                case "frozen":
+                    priceTextView = itemView.findViewById(R.id.frozen_price);
+                    titleTextView = itemView.findViewById(R.id.frozen_mid_title);
+                    imageView = itemView.findViewById(R.id.frozen_image);
+                    viewItem = itemView.findViewById(R.id.imageView);
+                    break;
+                case "drinks":
+                    priceTextView = itemView.findViewById(R.id.cake_price);
+                    titleTextView = itemView.findViewById(R.id.cake_mid_title);
+                    imageView = itemView.findViewById(R.id.cake_image);
+                    viewItem = itemView.findViewById(R.id.imageView);
+                    break;
+                default:
+                    priceTextView = itemView.findViewById(R.id.cake_price);
+                    titleTextView = itemView.findViewById(R.id.cake_mid_title);
+                    imageView = itemView.findViewById(R.id.cake_image);
+                    viewItem = itemView.findViewById(R.id.imageView);
+                    break;
+            }
         }
 
         @Override
@@ -40,19 +63,36 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     private List<Dessert> items;
     private FragmentActivity context;
     private Dessert currentItem;
+    private String category;
 
-    public ItemListAdapter(List<Dessert> items, FragmentActivity c) {
+    public ItemListAdapter(List<Dessert> items, FragmentActivity c, String category) {
         this.items = items;
         this.context = c;
+        this.category = category;
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate layout
-        View dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cake_list_item, parent, false);
+        View dessertView;
+        switch (this.category)
+        {
+            case "cake":
+                dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cake_list_item, parent, false);
+                break;
+            case "frozen":
+                dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_frozen_list_item, parent, false);
+                break;
+            case "drinks":
+                dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cake_list_item, parent, false);
+                break;
+            default:
+                dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cake_list_item, parent, false);
+                break;
+        }
 
         // Return new holder instance
-        ViewHolder viewHolder = new ViewHolder(dessertView);
+        ViewHolder viewHolder = new ViewHolder(dessertView, this.category);
         return viewHolder;
     }
 

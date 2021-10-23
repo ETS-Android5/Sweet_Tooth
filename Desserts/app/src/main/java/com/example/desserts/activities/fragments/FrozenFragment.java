@@ -66,9 +66,9 @@ private FragmentListCakesBinding binding;
 //        MockDataSet mockDataSet = new MockDataSet();
 //        List<Dessert> cakesList = mockDataSet.getItems();
 //        List<Dessert> cakesList = DBLoader.getAllCakes();
-        view = inflater.inflate(R.layout.fragment_list_cakes, container, false);
-        RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.cake_listview);
-        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity());
+        view = inflater.inflate(R.layout.fragment_list_frozen, container, false);
+        RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.frozen_listview);
+        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity(), "frozen");
         cakeRecyclerView.setAdapter(itemListAdapter);
         cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
 
