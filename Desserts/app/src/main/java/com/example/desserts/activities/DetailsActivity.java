@@ -42,12 +42,6 @@ public class DetailsActivity extends AppCompatActivity {
         String description = extras.getString("description");
         String cost = extras.getString("price");
         String id = extras.getString("id");
-        System.out.println("listttttttttttttttttttttttttttttttttttttttttt");
-        System.out.println(category);
-        System.out.println(name);
-        System.out.println(description);
-        System.out.println(cost);
-        System.out.println(id);
         if (category != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (category) {
