@@ -70,7 +70,7 @@ private FragmentListCakesBinding binding;
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.drink_listview);
         ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity(), "drinks");
         cakeRecyclerView.setAdapter(itemListAdapter);
-        cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
+        cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false));
 
         return view;
 
