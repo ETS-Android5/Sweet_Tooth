@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,7 +38,7 @@ public class TopViewedAdapter extends RecyclerView.Adapter<TopViewedAdapter.View
     public void onBindViewHolder(TopViewedAdapter.ViewHolder holder, int position) {
 
         Dessert currentItem = top5Desserts.get(position);
-        ImageButton imageButton = holder.getImageButton();
+        ImageView imageButton = holder.imageButton;
 
         String imageName = currentItem.getCategory() + currentItem.getId() + "_1";
         int id;
@@ -58,20 +59,17 @@ public class TopViewedAdapter extends RecyclerView.Adapter<TopViewedAdapter.View
         return this.top5Desserts.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageButton imageButton;
+        public ImageView imageButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            imageButton = (ImageButton) itemView.findViewById(R.id.top_viewed_button);
+            imageButton = (ImageView) itemView.findViewById(R.id.top_viewed_button);
 
         }
 
-        public ImageButton getImageButton() {
-            return imageButton;
-        }
     }
 
 }
