@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desserts.R;
 import com.example.desserts.activities.adaptors.ItemListAdapter;
-import com.example.desserts.databinding.FragmentCakesBinding;
-import com.example.desserts.databinding.FragmentFrozenBinding;
+import com.example.desserts.databinding.FragmentListCakesBinding;
 import com.example.desserts.structures.Dessert;
 
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class FrozenFragment extends Fragment {
 //        super.onDestroyView();
 //        binding = null;
 //    }
-private FragmentCakesBinding binding;
+private FragmentListCakesBinding binding;
     private View view;
     private List<Dessert> cakesList = new ArrayList<>();
 
@@ -67,9 +66,9 @@ private FragmentCakesBinding binding;
 //        MockDataSet mockDataSet = new MockDataSet();
 //        List<Dessert> cakesList = mockDataSet.getItems();
 //        List<Dessert> cakesList = DBLoader.getAllCakes();
-        view = inflater.inflate(R.layout.fragment_cakes, container, false);
+        view = inflater.inflate(R.layout.fragment_list_cakes, container, false);
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.cake_listview);
-        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, "icecream");
+        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity());
         cakeRecyclerView.setAdapter(itemListAdapter);
         cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
 

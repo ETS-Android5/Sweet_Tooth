@@ -1,55 +1,49 @@
 package com.example.desserts.activities.adaptors;
 
-import android.content.Intent;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.desserts.R;
-import com.example.desserts.activities.DetailsActivity;
-import com.example.desserts.activities.ListActivity;
-import com.example.desserts.structures.Dessert;
-import java.io.Serializable;
+
 import java.util.List;
-public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHolder> {
+
+public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapter.ViewHolder> {
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView priceTextView;
-        public TextView titleTextView;
         public ImageView imageView;
-        public ImageView viewItem;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            priceTextView = itemView.findViewById(R.id.cake_price);
-            titleTextView = itemView.findViewById(R.id.cake_mid_title);
-            imageView = itemView.findViewById(R.id.cake_image);
-            viewItem = itemView.findViewById(R.id.imageView);
+            imageView = itemView.findViewById(R.id.details_image);
         }
 
         @Override
         public void onClick(View v) {
+
         }
     }
-    private List<Dessert> items;
-    private FragmentActivity context;
-    private Dessert currentItem;
 
-    public ItemListAdapter(List<Dessert> items, FragmentActivity c) {
+    private List<String> items;
+    private FragmentActivity context;
+    private String currentImageName;
+
+    public ImageGalleryAdapter(List<String> items, FragmentActivity c) {
         this.items = items;
-        this.context = c;
+//        this.context = c;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate layout
-        View dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cake_list_item, parent, false);
+        View dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_image_gallery, parent, false);
 
         // Return new holder instance
         ViewHolder viewHolder = new ViewHolder(dessertView);
@@ -57,25 +51,14 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemListAdapter.ViewHolder holder, int position) {
-        currentItem = items.get(position);
+    public void onBindViewHolder(@NonNull ImageGalleryAdapter.ViewHolder holder, int position) {
+        currentImageName = items.get(position);
 
-        TextView price = holder.priceTextView;
-        TextView title = holder.titleTextView;
         ImageView image = holder.imageView;
-//        TextView prevTitle = holder.prevTextView;
-//        TextView nextTitle = holder.nextTextView;
 
-        String cost = "$" + currentItem.getCost() + "0";
-        price.setText(cost);
-        price.setTypeface(null, Typeface.BOLD);
-        title.setText(currentItem.getName());
-        title.setTypeface(null, Typeface.BOLD);
-
-        String imageName = currentItem.getCategory() + currentItem.getId() + "_1";
         int id;
         try {
-            id = R.drawable.class.getField(imageName).getInt(null);
+            id = R.drawable.class.getField(currentImageName).getInt(null);
             image.setImageResource(id);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -83,17 +66,8 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             e.printStackTrace();
         }
 
-        holder.viewItem.setOnClickListener(v -> {
-            Intent switchActivityIntent = new Intent(context, DetailsActivity.class);
-            switchActivityIntent.putExtra("category", items.get(holder.getAdapterPosition()).getCategory());
-            switchActivityIntent.putExtra("name", items.get(holder.getAdapterPosition()).getName());
-            switchActivityIntent.putExtra("description", items.get(holder.getAdapterPosition()).getDescription());
-            switchActivityIntent.putExtra("price", "$" + items.get(holder.getAdapterPosition()).getCost() + "0");
-            switchActivityIntent.putExtra("id", "" + items.get(holder.getAdapterPosition()).getId());
-            context.startActivity(switchActivityIntent);
-            context.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        });
     }
+
     @Override
     public int getItemCount() {
         return this.items.size();
@@ -105,6 +79,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
 //    private Context mContext;
 //    private String category;
 //    private List<Dessert> items;
+
 //    public ItemListAdapter(@NonNull Context context, int resource, @NonNull List<Dessert> items) {
 //        super(context, resource, items);
 //        this.resourceLayout = resource;

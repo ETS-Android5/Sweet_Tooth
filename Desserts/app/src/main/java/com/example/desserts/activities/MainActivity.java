@@ -81,12 +81,12 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // Dynamically set up the top 5 most viewed items
-        RecyclerView recyclerView = findViewById(R.id.topViewedDesserts);
-        adapter = new TopViewedAdapter(Helpers.top5(allDesserts));
-        recyclerView.setAdapter(adapter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
+//        RecyclerView recyclerView = findViewById(R.id.topViewedDesserts);
+//        adapter = new TopViewedAdapter(Helpers.top5(allDesserts));
+//        recyclerView.setAdapter(adapter);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+////        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(layoutManager);
 
         // Category buttons
         ImageButton cakesListButton = findViewById(R.id.button_cakes);
