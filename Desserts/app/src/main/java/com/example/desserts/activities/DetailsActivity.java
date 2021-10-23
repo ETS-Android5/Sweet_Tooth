@@ -44,19 +44,22 @@ public class DetailsActivity extends AppCompatActivity {
         String id = extras.getString("id");
         if (category != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            switch (category) {
-                case "cake":
-                    DetailsCakesFragment cF = new DetailsCakesFragment();
+            DetailsCakesFragment cF = new DetailsCakesFragment();
 //                    cF.populateData(name, category, description, cost, id);
-                    ft.replace(R.id.details_fragment_placeholder, cF);
-                    break;
+            ft.replace(R.id.details_fragment_placeholder, cF);
+//            switch (category) {
+//                case "cake":
+//                    DetailsCakesFragment cF = new DetailsCakesFragment();
+////                    cF.populateData(name, category, description, cost, id);
+//                    ft.replace(R.id.details_fragment_placeholder, cF);
+//                    break;
 //                case "drinks":
 //                    ft.replace(R.id.details_fragment_placeholder, new DrinksFragment());
 //                    break;
 //                case "frozen":
 //                    ft.replace(R.id.details_fragment_placeholder, new FrozenFragment());
 //                    break;
-            }
+//            }
             ft.commit();
         }
     }
