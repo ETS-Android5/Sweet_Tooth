@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/categories"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
@@ -23,38 +23,35 @@
         <ImageButton
             android:id="@+id/button_cakes"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="match_parent"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:paddingEnd="1dp"
-            android:scaleType="centerCrop"
-            android:scaleY="1.1"
-            android:tintMode="add"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
             android:background="@drawable/cake7_2"/>
 <!--            app:tint="@drawable/ic_baseline_dimeffect"-->
 
         <ImageButton
             android:id="@+id/button_drinks"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
-            android:scaleType="centerCrop"
-            android:scaleY="1.1"
-            android:tintMode="add"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
             android:background="@drawable/coffee4_3" />
 <!--            app:tint="@drawable/ic_baseline_dimeffect"-->
 
         <ImageButton
             android:id="@+id/button_frozen"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
-            android:scaleType="centerCrop"
-            android:scaleY="1.1"
-            android:tintMode="add"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
             android:background="@drawable/icecream3_2" />
 <!--            app:tint="@drawable/ic_baseline_dimeffect"-->
 
