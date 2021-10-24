@@ -29,6 +29,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?android:attr/actionBarSize"
+            android:text="No search results found."
+            android:gravity="center"
+            android:id="@+id/no_results"
+            />
+
         <FrameLayout
             android:id="@+id/list_fragment_placeholder"
             android:layout_width="0dp"

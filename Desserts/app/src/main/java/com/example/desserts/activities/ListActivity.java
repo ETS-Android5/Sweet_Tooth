@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.desserts.R;
@@ -41,6 +43,7 @@ public class ListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        TextView noResults = findViewById(R.id.no_results);
 
         // Dynamically load the fragment
         Bundle extras = getIntent().getExtras();
@@ -54,11 +57,17 @@ public class ListActivity extends AppCompatActivity {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (category) {
                 case "cakes":
+                    if (!cakes.isEmpty()) {
+                        noResults.setVisibility(View.GONE);
+                    }
                     CakesFragment cF = new CakesFragment();
                     cF.populateCakes(cakes);
                     ft.replace(R.id.list_fragment_placeholder, cF);
                     break;
                 case "drinks":
+                    if (!drinks.isEmpty()) {
+                        noResults.setVisibility(View.GONE);
+                    }
                     //---------Uncomment after implementation
                     DrinksFragment dF = new DrinksFragment();
                     dF.populateCakes(drinks);
@@ -68,6 +77,9 @@ public class ListActivity extends AppCompatActivity {
 //                    ft.replace(R.id.list_fragment_placeholder, dF);
                     break;
                 case "frozen":
+                    if (!frozen.isEmpty()) {
+                        noResults.setVisibility(View.GONE);
+                    }
                     //---------Uncomment after implementation
                     FrozenFragment fF = new FrozenFragment();
                     fF.populateCakes(frozen);
@@ -77,6 +89,9 @@ public class ListActivity extends AppCompatActivity {
 //                    ft.replace(R.id.list_fragment_placeholder, fF);
                     break;
                 case "searchResults":
+                    if (!searchResults.isEmpty()) {
+                        noResults.setVisibility(View.GONE);
+                    }
                     CakesFragment sRF = new CakesFragment();
                     sRF.populateCakes(searchResults);
                     ft.replace(R.id.list_fragment_placeholder, sRF);
