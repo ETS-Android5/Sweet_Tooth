@@ -67,7 +67,11 @@
 <!--            app:layout_constraintEnd_toEndOf="parent"-->
 <!--            app:layout_constraintStart_toStartOf="parent"-->
 <!--            app:layout_constraintTop_toTopOf="parent" />-->
-        <include layout="@layout/content_main"></include>
+<!--        <include layout="@layout/content_main"></include>-->
+        <include layout="@layout/content_main"
+            android:layout_marginTop="?android:attr/actionBarSize"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"></include>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
