@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Dynamically set up the top 5 most viewed items
         RecyclerView recyclerView = findViewById(R.id.topViewedDesserts);
-        adapter = new TopViewedAdapter(Helpers.top5(allDesserts));
+        adapter = new TopViewedAdapter(Helpers.top5(allDesserts), this);
         recyclerView.setAdapter(adapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
 //        recyclerView.setHasFixedSize(true);

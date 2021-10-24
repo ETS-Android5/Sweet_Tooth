@@ -1,14 +1,18 @@
 package com.example.desserts.activities.adaptors;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desserts.R;
+import com.example.desserts.activities.DetailsActivity;
 import com.example.desserts.structures.Dessert;
 
 import java.util.List;
@@ -16,9 +20,11 @@ import java.util.List;
 public class TopViewedAdapter extends RecyclerView.Adapter<TopViewedAdapter.ViewHolder> {
 
     private List<Dessert> top5Desserts;
+    private FragmentActivity c;
 
-    public TopViewedAdapter(List<Dessert> desserts) {
+    public TopViewedAdapter(List<Dessert> desserts, FragmentActivity c) {
         this.top5Desserts = desserts;
+        this.c = c;
     }
 
     @NonNull
@@ -50,6 +56,18 @@ public class TopViewedAdapter extends RecyclerView.Adapter<TopViewedAdapter.View
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
+
+        holder.getImageButton().setOnClickListener(v -> {
+            Intent switchActivityIntent = new Intent(c, DetailsActivity.class);
+            this.top5Desserts.get(holder.getAdapterPosition()).increaseNumberViewed();
+            switchActivityIntent.putExtra("category", this.top5Desserts.get(holder.getAdapterPosition()).getCategory());
+            switchActivityIntent.putExtra("name", this.top5Desserts.get(holder.getAdapterPosition()).getName());
+            switchActivityIntent.putExtra("description", this.top5Desserts.get(holder.getAdapterPosition()).getDescription());
+            switchActivityIntent.putExtra("price", "$" + this.top5Desserts.get(holder.getAdapterPosition()).getCost() + "0");
+            switchActivityIntent.putExtra("id", "" + this.top5Desserts.get(holder.getAdapterPosition()).getId());
+            c.startActivity(switchActivityIntent);
+            c.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        });
     }
 
 
