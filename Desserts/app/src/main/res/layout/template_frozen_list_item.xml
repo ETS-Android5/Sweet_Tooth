@@ -67,7 +67,6 @@
         android:id="@+id/frozen_add_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"
         android:background="@drawable/ic_baseline_add_circle"
         android:backgroundTint="@color/burgundy"
         android:translationZ="17dp"
@@ -103,7 +102,7 @@
         android:layout_marginEnd="48dp"
         android:backgroundTint="@color/pale_burgundy"
         app:layout_constraintTop_toBottomOf="@+id/frozen_mid_dot"
-        app:layout_constraintBottom_toBottomOf="@+id/frozen_info_card_mid"
+        app:layout_constraintBottom_toTopOf="@+id/frozen_add_button"
         app:layout_constraintStart_toStartOf="@+id/frozen_info_card_mid"
         app:layout_constraintEnd_toEndOf="@+id/frozen_info_card_mid"
         />
@@ -122,7 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frozen_image_card"
-        app:layout_constraintVertical_weight="6" />
+        app:layout_constraintVertical_weight="2" />
 
     <TextView
         android:id="@+id/frozen_view"
@@ -167,7 +166,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/frozen_image_card"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="0dp"
         android:layout_marginStart="-30dp"
         android:layout_marginTop="-120dp"
         android:layout_marginEnd="-30dp"
@@ -177,7 +176,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="8">
+        app:layout_constraintVertical_weight="3">
 
         <ImageView
             android:id="@+id/frozen_image"
