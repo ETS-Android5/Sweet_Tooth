@@ -8,6 +8,7 @@ import com.example.desserts.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Parcelable;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desserts.activities.adaptors.ShoppingCartAdaptor;
 import com.example.desserts.activities.adaptors.TopViewedAdapter;
+import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.database.DBLoader;
 import com.example.desserts.databinding.ActivityMainBinding;
 import com.example.desserts.helper.Helpers;
@@ -32,6 +34,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
@@ -154,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
                     ShoppingCartAdaptor sA = new ShoppingCartAdaptor(this, R.layout.template_image_gallery);
                     ListView lV = findViewById(R.id.shopping_cart);
                     lV.setAdapter(sA);
+                    TextView cost = findViewById(R.id.total_cost);
+                    cost.setText("Total cost: $"+ ShoppingCart.getInstance().getTotalCost());
                     drawer.openDrawer(GravityCompat.END);
                 }
                 return true;

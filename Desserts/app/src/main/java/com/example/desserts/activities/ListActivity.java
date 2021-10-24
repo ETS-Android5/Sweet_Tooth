@@ -15,6 +15,7 @@ import com.example.desserts.activities.adaptors.ShoppingCartAdaptor;
 import com.example.desserts.activities.fragments.CakesFragment;
 import com.example.desserts.activities.fragments.DrinksFragment;
 import com.example.desserts.activities.fragments.FrozenFragment;
+import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.databinding.ActivityListBinding;
 import com.example.desserts.structures.Dessert;
 
@@ -137,6 +138,8 @@ public class ListActivity extends AppCompatActivity {
                     ShoppingCartAdaptor sA = new ShoppingCartAdaptor(this, R.layout.template_image_gallery);
                     ListView lV = findViewById(R.id.shopping_cart);
                     lV.setAdapter(sA);
+                    TextView cost = findViewById(R.id.total_cost);
+                    cost.setText("Total cost: $"+ ShoppingCart.getInstance().getTotalCost());
                     drawer.openDrawer(GravityCompat.END);
                 }
                 return true;

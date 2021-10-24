@@ -47,11 +47,7 @@ public class ShoppingCartAdaptor  extends ArrayAdapter<Dessert> {
 
         Dessert p = getItem(position);
         if (p != null) {
-//            TextView price = (TextView) v.findViewById(R.id.cake_price);
-//            TextView title = (TextView) v.findViewById(R.id.cake_mid_title);
             ImageView image = (ImageView) v.findViewById(R.id.details_image);
-//            price.setText("$" + p.getCost());
-//            title.setText(p.getName());
 
             String imageName = p.getCategory() + p.getId() + "_1";
             Resources resources = mContext.getResources();

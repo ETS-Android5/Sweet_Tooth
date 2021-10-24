@@ -5,6 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,6 +20,7 @@ import com.example.desserts.activities.fragments.CakesFragment;
 import com.example.desserts.activities.fragments.DetailsCakesFragment;
 import com.example.desserts.activities.fragments.DrinksFragment;
 import com.example.desserts.activities.fragments.FrozenFragment;
+import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.databinding.ActivityDetailsBinding;
 import com.example.desserts.structures.Dessert;
 import java.util.List;
@@ -97,6 +99,8 @@ public class DetailsActivity extends AppCompatActivity {
                     ShoppingCartAdaptor sA = new ShoppingCartAdaptor(this, R.layout.template_image_gallery);
                     ListView lV = findViewById(R.id.shopping_cart);
                     lV.setAdapter(sA);
+                    TextView cost = findViewById(R.id.total_cost);
+                    cost.setText("Total cost: $"+ ShoppingCart.getInstance().getTotalCost());
                     drawer.openDrawer(GravityCompat.END);
                 }
                 return true;
