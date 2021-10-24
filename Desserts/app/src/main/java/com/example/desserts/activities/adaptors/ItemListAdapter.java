@@ -125,6 +125,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
 
         holder.viewItem.setOnClickListener(v -> {
             Intent switchActivityIntent = new Intent(context, DetailsActivity.class);
+            items.get(holder.getAdapterPosition()).increaseNumberViewed();
             switchActivityIntent.putExtra("category", items.get(holder.getAdapterPosition()).getCategory());
             switchActivityIntent.putExtra("name", items.get(holder.getAdapterPosition()).getName());
             switchActivityIntent.putExtra("description", items.get(holder.getAdapterPosition()).getDescription());
