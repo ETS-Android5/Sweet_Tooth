@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.desserts.R;
+import com.example.desserts.activities.adaptors.ShoppingCartAdaptor;
 import com.example.desserts.activities.fragments.CakesFragment;
 import com.example.desserts.activities.fragments.DrinksFragment;
 import com.example.desserts.activities.fragments.FrozenFragment;
@@ -132,6 +134,9 @@ public class ListActivity extends AppCompatActivity {
                 if (drawer.isDrawerOpen(GravityCompat.END)) {
                     drawer.closeDrawer(GravityCompat.END);
                 } else {
+                    ShoppingCartAdaptor sA = new ShoppingCartAdaptor(this, R.layout.template_image_gallery);
+                    ListView lV = findViewById(R.id.shopping_cart);
+                    lV.setAdapter(sA);
                     drawer.openDrawer(GravityCompat.END);
                 }
                 return true;

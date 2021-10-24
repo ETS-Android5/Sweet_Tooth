@@ -14,9 +14,13 @@
         android:layout_height="match_parent"
         android:background="@drawable/rounded_navigation_drawer"
         android:layout_gravity="end"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/activity_drawer" />
+        android:fitsSystemWindows="true">
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            layout="@layout/nav_header"
+            />
+    </com.google.android.material.navigation.NavigationView>
 
     <!--        <include layout="@layout/fragment_cakes" />-->
     <androidx.constraintlayout.widget.ConstraintLayout

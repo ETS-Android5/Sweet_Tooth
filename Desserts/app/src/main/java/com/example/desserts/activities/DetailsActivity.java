@@ -3,6 +3,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
 import com.example.desserts.R;
+import com.example.desserts.activities.adaptors.ShoppingCartAdaptor;
 import com.example.desserts.activities.fragments.CakesFragment;
 import com.example.desserts.activities.fragments.DetailsCakesFragment;
 import com.example.desserts.activities.fragments.DrinksFragment;
@@ -92,6 +94,9 @@ public class DetailsActivity extends AppCompatActivity {
                 if (drawer.isDrawerOpen(GravityCompat.END)) {
                     drawer.closeDrawer(GravityCompat.END);
                 } else {
+                    ShoppingCartAdaptor sA = new ShoppingCartAdaptor(this, R.layout.template_image_gallery);
+                    ListView lV = findViewById(R.id.shopping_cart);
+                    lV.setAdapter(sA);
                     drawer.openDrawer(GravityCompat.END);
                 }
                 return true;
