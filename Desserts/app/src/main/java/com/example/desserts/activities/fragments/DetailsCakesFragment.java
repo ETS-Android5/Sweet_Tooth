@@ -1,11 +1,13 @@
 package com.example.desserts.activities.fragments;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.desserts.R;
 import com.example.desserts.activities.adaptors.ImageGalleryAdapter;
 import com.example.desserts.activities.adaptors.ItemListAdapter;
+import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.databinding.FragmentDetailsCakesBinding;
 import com.example.desserts.structures.Dessert;
 
@@ -43,6 +46,10 @@ public class DetailsCakesFragment extends Fragment {
         String description = extras.getString("description");
         String price = extras.getString("price");
         String id = extras.getString("id");
+        Intent intent = getActivity().getIntent();
+        Dessert dessert = (Dessert) intent.getSerializableExtra("dessert");
+        System.out.println("dessert");
+        System.out.println(dessert);
 
         TextView name = view.findViewById(R.id.cake_title_details);
         name.setText(title);
@@ -69,6 +76,13 @@ public class DetailsCakesFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 getActivity().onBackPressed();
+            }
+        });
+        Button add = view.findViewById(R.id.cake_add_button_details);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShoppingCart.getInstance().addDessert(dessert);
             }
         });
 

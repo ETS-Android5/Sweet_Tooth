@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.desserts.activities.adaptors.ShoppingCartAdaptor;
 import com.example.desserts.activities.adaptors.TopViewedAdapter;
 import com.example.desserts.database.DBLoader;
 import com.example.desserts.databinding.ActivityMainBinding;
@@ -29,6 +30,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -149,6 +151,9 @@ public class MainActivity extends AppCompatActivity {
                 if (drawer.isDrawerOpen(GravityCompat.END)) {
                     drawer.closeDrawer(GravityCompat.END);
                 } else {
+                    ShoppingCartAdaptor sA = new ShoppingCartAdaptor(this, R.layout.template_image_gallery);
+                    ListView lV = findViewById(R.id.shopping_cart);
+                    lV.setAdapter(sA);
                     drawer.openDrawer(GravityCompat.END);
                 }
                 return true;

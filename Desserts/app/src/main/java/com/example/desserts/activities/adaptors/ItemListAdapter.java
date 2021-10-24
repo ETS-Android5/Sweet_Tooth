@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.desserts.R;
 import com.example.desserts.activities.DetailsActivity;
 import com.example.desserts.activities.ListActivity;
+import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.structures.Dessert;
 import java.io.Serializable;
 import java.util.List;
@@ -23,6 +25,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         public TextView titleTextView;
         public ImageView imageView;
         public ImageView viewItem;
+        public ImageButton addButton;
 
         public ViewHolder(@NonNull View itemView, String category) {
             super(itemView);
@@ -34,24 +37,28 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
                     titleTextView = itemView.findViewById(R.id.cake_mid_title);
                     imageView = itemView.findViewById(R.id.cake_image);
                     viewItem = itemView.findViewById(R.id.imageView);
+                    addButton = itemView.findViewById(R.id.cake_add_button);
                     break;
                 case "frozen":
                     priceTextView = itemView.findViewById(R.id.frozen_price);
                     titleTextView = itemView.findViewById(R.id.frozen_mid_title);
                     imageView = itemView.findViewById(R.id.frozen_image);
                     viewItem = itemView.findViewById(R.id.imageView);
+                    addButton = itemView.findViewById(R.id.frozen_add_button);
                     break;
                 case "drinks":
                     priceTextView = itemView.findViewById(R.id.drink_price);
                     titleTextView = itemView.findViewById(R.id.drink_mid_title);
                     imageView = itemView.findViewById(R.id.drink_image);
                     viewItem = itemView.findViewById(R.id.imageView);
+                    addButton = itemView.findViewById(R.id.drink_add_button);
                     break;
                 default:
                     priceTextView = itemView.findViewById(R.id.cake_price);
                     titleTextView = itemView.findViewById(R.id.cake_mid_title);
                     imageView = itemView.findViewById(R.id.cake_image);
                     viewItem = itemView.findViewById(R.id.imageView);
+                    addButton = itemView.findViewById(R.id.cake_add_button);
                     break;
             }
         }
@@ -123,6 +130,13 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             e.printStackTrace();
         }
 
+        holder.addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShoppingCart.getInstance().addDessert(items.get(holder.getAdapterPosition()));
+            }
+        });
+
         holder.viewItem.setOnClickListener(v -> {
             Intent switchActivityIntent = new Intent(context, DetailsActivity.class);
             items.get(holder.getAdapterPosition()).increaseNumberViewed();
@@ -131,6 +145,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             switchActivityIntent.putExtra("description", items.get(holder.getAdapterPosition()).getDescription());
             switchActivityIntent.putExtra("price", "$" + items.get(holder.getAdapterPosition()).getCost() + "0");
             switchActivityIntent.putExtra("id", "" + items.get(holder.getAdapterPosition()).getId());
+            switchActivityIntent.putExtra("dessert", items.get(holder.getAdapterPosition()));
             context.startActivity(switchActivityIntent);
             context.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
