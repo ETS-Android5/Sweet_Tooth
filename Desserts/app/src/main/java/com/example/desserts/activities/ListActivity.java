@@ -124,8 +124,8 @@ public class ListActivity extends AppCompatActivity {
                 Toast.makeText(ListActivity.this, "searching", Toast.LENGTH_SHORT).show();
                 return true;
             case android.R.id.home:
-//                onBackPressed();
-                NavUtils.navigateUpFromSameTask(this);
+                onBackPressed();
+//                NavUtils.navigateUpFromSameTask(this);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 return true;
         }
