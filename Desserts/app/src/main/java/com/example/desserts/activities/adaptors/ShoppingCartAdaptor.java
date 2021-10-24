@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -53,6 +54,14 @@ public class ShoppingCartAdaptor  extends ArrayAdapter<Dessert> {
             Resources resources = mContext.getResources();
             final int imageResourceId = resources.getIdentifier(imageName, "drawable", mContext.getOpPackageName());
             image.setImageResource(imageResourceId);
+
+            ImageButton close = v.findViewById(R.id.remove_from_cart);
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ShoppingCart.getInstance().removeDessert(p);
+                }
+            });
     }
 
         return v;
