@@ -51,8 +51,10 @@ public class ShoppingCart {
      * @param dessert - Dessert to be removed from the Cart
      */
     public void removeDessert (Dessert dessert) {
-        totalCost -= dessert.getCost();
-        desserts.remove(dessert);
+        if (desserts.contains(dessert)) {
+            totalCost -= dessert.getCost();
+            desserts.remove(dessert);
+        }
     }
 
     /**
@@ -68,7 +70,7 @@ public class ShoppingCart {
      * @return total cost in the cart
      */
     public float getTotalCost () {
-        return totalCost;
+        return (float) (Math.round(totalCost* 100.0) / 100.0);
     }
 
 }

@@ -27,6 +27,7 @@ import com.example.desserts.database.DBLoader;
 import com.example.desserts.databinding.ActivityMainBinding;
 import com.example.desserts.helper.Helpers;
 import com.example.desserts.structures.Dessert;
+import com.google.android.material.navigation.NavigationView;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -159,6 +160,8 @@ public class MainActivity extends AppCompatActivity {
                     lV.setAdapter(sA);
                     TextView cost = findViewById(R.id.total_cost);
                     cost.setText("Total cost: $"+ ShoppingCart.getInstance().getTotalCost());
+                    NavigationView navigation = findViewById(R.id.nav_view);
+                    navigation.bringToFront();
                     drawer.openDrawer(GravityCompat.END);
                 }
                 return true;
