@@ -160,9 +160,8 @@ public class MainActivity extends AppCompatActivity {
                     lV.setAdapter(sA);
                     TextView cost = findViewById(R.id.total_cost);
                     new Thread() {
-                        int i = 0;
                         public void run() {
-                            while (i++ < 1000) {
+                            while (true) {
                                 try {
                                     runOnUiThread(new Runnable() {
                                         @Override
