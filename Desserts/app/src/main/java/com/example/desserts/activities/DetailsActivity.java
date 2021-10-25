@@ -3,6 +3,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -119,6 +121,15 @@ public class DetailsActivity extends AppCompatActivity {
                             }
                         }
                     }.start();
+                    Button confirm = findViewById(R.id.confirm_order);
+                    confirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ShoppingCart.getInstance().confirmOrder();
+                            sA.notifyDataSetChanged();
+                            Toast.makeText(DetailsActivity.this, "Your order has been confirmed!", Toast.LENGTH_LONG).show();
+                        }
+                    });
                     NavigationView navigation = findViewById(R.id.nav_view);
                     navigation.bringToFront();
                     drawer.openDrawer(GravityCompat.END);

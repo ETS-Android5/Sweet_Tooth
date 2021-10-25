@@ -7,10 +7,10 @@
 
     <ImageView
         android:id="@+id/logo_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/cake8_1"/>
+        android:src="@drawable/splash_screen"/>
 
 </RelativeLayout>

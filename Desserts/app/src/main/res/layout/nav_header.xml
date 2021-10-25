@@ -41,4 +41,12 @@
         android:layout_marginBottom="?android:attr/actionBarSize"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm order"
+        android:id="@+id/confirm_order"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/cherry"/>
+
 </LinearLayout>

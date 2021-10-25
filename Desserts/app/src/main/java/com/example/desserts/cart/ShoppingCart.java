@@ -11,7 +11,7 @@ import java.util.List;
  * @author Osama Kashif
  */
 public class ShoppingCart {
-    
+
     private static ShoppingCart cart_instance = null;
 
     private List<Dessert> desserts;
@@ -39,18 +39,20 @@ public class ShoppingCart {
 
     /**
      * Adds input dessert to the cart.
+     *
      * @param dessert - Dessert to be added to the cart.
      */
-    public void addDessert (Dessert dessert) {
+    public void addDessert(Dessert dessert) {
         desserts.add(dessert);
         totalCost += dessert.getCost();
     }
 
     /**
      * Removes input dessert from the cart.
+     *
      * @param dessert - Dessert to be removed from the Cart
      */
-    public void removeDessert (Dessert dessert) {
+    public void removeDessert(Dessert dessert) {
         if (desserts.contains(dessert)) {
             totalCost -= dessert.getCost();
             desserts.remove(dessert);
@@ -59,18 +61,29 @@ public class ShoppingCart {
 
     /**
      * getAllDessertsInCart gets all the desserts which the user has added to the cart.
+     *
      * @return List of Desserts added to the cart
      */
-    public List<Dessert> getAllDessertsInCart () {
+    public List<Dessert> getAllDessertsInCart() {
         return desserts;
     }
 
     /**
      * getTotalCost gets the total cost of the desserts in the cart.
+     *
      * @return total cost in the cart
      */
-    public float getTotalCost () {
-        return (float) (Math.round(totalCost* 100.0) / 100.0);
+    public float getTotalCost() {
+        return (float) (Math.round(totalCost * 100.0) / 100.0);
+    }
+
+    /**
+     * confirmOrder is modelled so that in a fully implemented scenario the cart items are ordered.
+     * For our case it just removes all the cart items reflecting that.
+     */
+    public void confirmOrder() {
+        desserts.clear();
+        totalCost = 0;
     }
 
 }
