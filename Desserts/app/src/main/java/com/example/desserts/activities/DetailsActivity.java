@@ -23,6 +23,8 @@ import com.example.desserts.activities.fragments.FrozenFragment;
 import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.databinding.ActivityDetailsBinding;
 import com.example.desserts.structures.Dessert;
+import com.google.android.material.navigation.NavigationView;
+
 import java.util.List;
 public class DetailsActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
@@ -101,6 +103,8 @@ public class DetailsActivity extends AppCompatActivity {
                     lV.setAdapter(sA);
                     TextView cost = findViewById(R.id.total_cost);
                     cost.setText("Total cost: $"+ ShoppingCart.getInstance().getTotalCost());
+                    NavigationView navigation = findViewById(R.id.nav_view);
+                    navigation.bringToFront();
                     drawer.openDrawer(GravityCompat.END);
                 }
                 return true;

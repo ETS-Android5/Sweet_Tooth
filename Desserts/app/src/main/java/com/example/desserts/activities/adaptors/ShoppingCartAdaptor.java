@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -60,6 +61,7 @@ public class ShoppingCartAdaptor  extends ArrayAdapter<Dessert> {
                 @Override
                 public void onClick(View view) {
                     ShoppingCart.getInstance().removeDessert(p);
+                    notifyDataSetChanged();
                 }
             });
     }
