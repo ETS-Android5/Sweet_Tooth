@@ -209,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
         switchActivityIntent.putExtra("frozen", (Serializable) frozen);
         switchActivityIntent.putExtra("drinks", (Serializable) drinks);
         switchActivityIntent.putExtra("searchResults", (Serializable) searchResults);
+        switchActivityIntent.putExtra("allDesserts", (Serializable) allDesserts);
         startActivity(switchActivityIntent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }

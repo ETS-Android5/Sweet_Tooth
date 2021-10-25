@@ -18,6 +18,7 @@ import com.example.desserts.activities.fragments.DrinksFragment;
 import com.example.desserts.activities.fragments.FrozenFragment;
 import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.databinding.ActivityListBinding;
+import com.example.desserts.helper.Helpers;
 import com.example.desserts.structures.Dessert;
 import com.google.android.material.navigation.NavigationView;
 
@@ -29,12 +30,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityListBinding binding;
+    private List<Dessert> allDesserts = new ArrayList<>();
+    private List<Dessert> searchResults = new ArrayList<>();
+    private String selectedCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +63,8 @@ public class ListActivity extends AppCompatActivity {
         List<Dessert> cakes = (List<Dessert>) intent.getSerializableExtra("cakes");
         List<Dessert> frozen = (List<Dessert>) intent.getSerializableExtra("frozen");
         List<Dessert> drinks = (List<Dessert>) intent.getSerializableExtra("drinks");
-        List<Dessert> searchResults = (List<Dessert>) intent.getSerializableExtra("searchResults");
+        searchResults = (List<Dessert>) intent.getSerializableExtra("searchResults");
+        allDesserts = (List<Dessert>) intent.getSerializableExtra("allDesserts");
         if (category != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (category) {
@@ -118,6 +125,10 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(ListActivity.this, "query submit", Toast.LENGTH_SHORT).show();
+                String searchQuery = mSearchView.getQuery().toString();
+                searchResults = Helpers.search(allDesserts,searchQuery);
+                selectedCategory = "searchResults";
+                switchToListActivity();
                 return true;
             }
 
@@ -188,5 +199,14 @@ public class ListActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    private void switchToListActivity() {
+        Intent switchActivityIntent = new Intent(this, ListActivity.class);
+        switchActivityIntent.putExtra("category", selectedCategory);
+        switchActivityIntent.putExtra("searchResults", (Serializable) searchResults);
+        switchActivityIntent.putExtra("allDesserts", (Serializable) allDesserts);
+        startActivity(switchActivityIntent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }
