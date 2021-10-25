@@ -118,7 +118,7 @@
         app:layout_constraintEnd_toStartOf="@id/drink_image_card"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="6" />
+        app:layout_constraintVertical_weight="4" />
 
     <TextView
         android:id="@+id/drink_view"
@@ -130,21 +130,21 @@
         android:textColor="@color/burgundy"
         android:translationZ="17dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/drink_image_card"
-        app:layout_constraintStart_toStartOf="@+id/drink_mid_dot"
-        app:layout_constraintTop_toBottomOf="@+id/arrow" />
+        app:layout_constraintEnd_toStartOf="@id/drink_image_card"
+        app:layout_constraintStart_toStartOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/arrow" />
 
     <ImageView
         android:id="@+id/arrow"
         android:layout_width="24dp"
         android:layout_height="32dp"
         android:layout_marginStart="60dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/ic_baseline_south_24"
         android:backgroundTint="@color/burgundy"
         android:elevation="17dp"
         android:rotation="270"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/drink_view"
         app:layout_constraintEnd_toStartOf="@id/drink_image_card"
         app:layout_constraintStart_toStartOf="@id/imageView"
         app:layout_constraintTop_toTopOf="@id/imageView" />
@@ -167,9 +167,9 @@
         android:id="@+id/drink_image_card"
         android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:layout_marginEnd="-150dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="?android:attr/actionBarSize"
         app:cardCornerRadius="200dp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
