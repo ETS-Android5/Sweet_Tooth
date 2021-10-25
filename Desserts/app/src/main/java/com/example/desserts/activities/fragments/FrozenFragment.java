@@ -18,41 +18,17 @@ import com.example.desserts.structures.Dessert;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * FrozenFragment it dynamically creates each frozen item in the Frozen category list.
+ *
+ * @author Amy Lyu
+ * @author Osama Kashif
+ */
 public class FrozenFragment extends Fragment {
 
-//    private FragmentFrozenBinding binding;
-//
-//    @Override
-//    public View onCreateView(
-//            LayoutInflater inflater, ViewGroup container,
-//            Bundle savedInstanceState
-//    ) {
-//
-//        binding = FragmentFrozenBinding.inflate(inflater, container, false);
-//        return binding.getRoot();
-//
-//    }
-//
-//    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                NavHostFragment.findNavController(DrinksFragment.this)
-////                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
-//            }
-//        });
-//    }
-//
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//        binding = null;
-//    }
-private FragmentListCakesBinding binding;
+    private FragmentListCakesBinding binding;
     private View view;
-    private List<Dessert> cakesList = new ArrayList<>();
+    private List<Dessert> frozenList = new ArrayList<>();
     private List<Dessert> allDesserts = new ArrayList<>();
 
     @Override
@@ -60,18 +36,11 @@ private FragmentListCakesBinding binding;
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
-//        binding = FragmentCakesBinding.inflate(inflater, container, false);
-
-//        List<Dessert> cakesList = DBLoader.getAllCakes();
-//        MockDataSet mockDataSet = new MockDataSet();
-//        List<Dessert> cakesList = mockDataSet.getItems();
-//        List<Dessert> cakesList = DBLoader.getAllCakes();
         view = inflater.inflate(R.layout.fragment_list_frozen, container, false);
-        RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.frozen_listview);
-        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity(), "frozen", allDesserts);
-        cakeRecyclerView.setAdapter(itemListAdapter);
-        cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
+        RecyclerView frozenRecyclerView = (RecyclerView) view.findViewById(R.id.frozen_listview);
+        ItemListAdapter itemListAdapter = new ItemListAdapter(frozenList, getActivity(), "frozen", allDesserts);
+        frozenRecyclerView.setAdapter(itemListAdapter);
+        frozenRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
 
         return view;
 
@@ -79,14 +48,6 @@ private FragmentListCakesBinding binding;
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-//        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                NavHostFragment.findNavController(CakesFragment.this)
-////                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-//            }
-//        });
     }
 
     @Override
@@ -95,8 +56,8 @@ private FragmentListCakesBinding binding;
         binding = null;
     }
 
-    public void populateCakes(List<Dessert> cakes) {
-        cakesList = cakes;
+    public void populate(List<Dessert> frozen) {
+        frozenList = frozen;
     }
 
     public void populateAllDesserts(List<Dessert> allDesserts) {

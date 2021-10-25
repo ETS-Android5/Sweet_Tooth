@@ -32,8 +32,8 @@ public class Helpers {
                 found = true;
             }
             /*
-             * Commented out as the user cannot see he ingredients containe yet, so we felt it
-             * may be better to leave it from the search results.
+             * Commented out as the user cannot see the ingredients contained yet, so we felt it
+             * may be better to leave it from the search results. Left inside for future revision.
              */
 //            if (!found) {
 //                for (String ing : des.getContainedIngredients()) {

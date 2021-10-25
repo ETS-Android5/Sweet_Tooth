@@ -16,6 +16,8 @@ import android.os.Handler;
 
 /**
  * SplashScreen for initial loading.
+ * Used to load data from the database, providing time to have all the data (without the data the
+ * app does not work.)
  *
  * @author Osama Kashif
  */

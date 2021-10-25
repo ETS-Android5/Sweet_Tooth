@@ -34,9 +34,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ListActivity is the Activity used to show the relevant desserts in a List.
+ * The relevant desserts can be desserts of a particular category  or search results.
+ *
+ * @author Amy Lyu
+ * @author Osama Kashif
+ */
 public class ListActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
     private ActivityListBinding binding;
     private List<Dessert> allDesserts = new ArrayList<>();
     private List<Dessert> searchResults = new ArrayList<>();
@@ -73,7 +79,7 @@ public class ListActivity extends AppCompatActivity {
                         noResults.setVisibility(View.GONE);
                     }
                     CakesFragment cF = new CakesFragment();
-                    cF.populateCakes(cakes);
+                    cF.populate(cakes);
                     cF.populateAllDesserts(allDesserts);
                     ft.replace(R.id.list_fragment_placeholder, cF);
                     break;
@@ -81,34 +87,26 @@ public class ListActivity extends AppCompatActivity {
                     if (!drinks.isEmpty()) {
                         noResults.setVisibility(View.GONE);
                     }
-                    //---------Uncomment after implementation
                     DrinksFragment dF = new DrinksFragment();
-                    dF.populateCakes(drinks);
+                    dF.populate(drinks);
                     dF.populateAllDesserts(allDesserts);
                     ft.replace(R.id.list_fragment_placeholder, dF);
-//                    CakesFragment dF = new CakesFragment();
-//                    dF.populateCakes(drinks);
-//                    ft.replace(R.id.list_fragment_placeholder, dF);
                     break;
                 case "frozen":
                     if (!frozen.isEmpty()) {
                         noResults.setVisibility(View.GONE);
                     }
-                    //---------Uncomment after implementation
                     FrozenFragment fF = new FrozenFragment();
-                    fF.populateCakes(frozen);
+                    fF.populate(frozen);
                     fF.populateAllDesserts(allDesserts);
                     ft.replace(R.id.list_fragment_placeholder, fF);
-//                    CakesFragment fF = new CakesFragment();
-//                    fF.populateCakes(frozen);
-//                    ft.replace(R.id.list_fragment_placeholder, fF);
                     break;
                 case "searchResults":
                     if (!searchResults.isEmpty()) {
                         noResults.setVisibility(View.GONE);
                     }
                     CakesFragment sRF = new CakesFragment();
-                    sRF.populateCakes(searchResults);
+                    sRF.populate(searchResults);
                     ft.replace(R.id.list_fragment_placeholder, sRF);
                     break;
             }
@@ -129,7 +127,7 @@ public class ListActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(ListActivity.this, "query submit", Toast.LENGTH_SHORT).show();
                 String searchQuery = mSearchView.getQuery().toString();
-                searchResults = Helpers.search(allDesserts,searchQuery);
+                searchResults = Helpers.search(allDesserts, searchQuery);
                 selectedCategory = "searchResults";
                 switchToListActivity();
                 return true;
@@ -162,7 +160,7 @@ public class ListActivity extends AppCompatActivity {
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
-                                            cost.setText("Total cost: $"+ ShoppingCart.getInstance().getTotalCost()+"0");
+                                            cost.setText("Total cost: $" + ShoppingCart.getInstance().getTotalCost() + "0");
                                         }
                                     });
                                     Thread.sleep(300);
@@ -191,7 +189,6 @@ public class ListActivity extends AppCompatActivity {
                 return true;
             case android.R.id.home:
                 onBackPressed();
-//                NavUtils.navigateUpFromSameTask(this);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 return true;
         }

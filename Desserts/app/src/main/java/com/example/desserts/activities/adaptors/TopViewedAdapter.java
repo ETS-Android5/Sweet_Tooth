@@ -20,6 +20,12 @@ import com.example.desserts.structures.Dessert;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * TopViewedAdapter is used to populate the REcycler View with the top 5 desserts.
+ *
+ * @author Tanya Li
+ * @author Osama Kashif
+ */
 public class TopViewedAdapter extends RecyclerView.Adapter<TopViewedAdapter.ViewHolder> {
 
     private List<Dessert> top5Desserts;

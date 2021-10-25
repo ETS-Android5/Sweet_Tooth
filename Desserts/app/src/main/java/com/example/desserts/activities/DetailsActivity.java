@@ -11,17 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.ui.AppBarConfiguration;
 import com.example.desserts.R;
 import com.example.desserts.activities.adaptors.ShoppingCartAdaptor;
-import com.example.desserts.activities.fragments.CakesFragment;
-import com.example.desserts.activities.fragments.DetailsCakesFragment;
-import com.example.desserts.activities.fragments.DrinksFragment;
-import com.example.desserts.activities.fragments.FrozenFragment;
+import com.example.desserts.activities.fragments.DetailsFragment;
 import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.databinding.ActivityDetailsBinding;
 import com.example.desserts.helper.Helpers;
@@ -31,8 +27,13 @@ import com.google.android.material.navigation.NavigationView;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * DetailsActivity is the Activity used to show the details of a selected Dessert.
+ * @author Amy Lyu
+ * @author Osama Kashif
+ */
 public class DetailsActivity extends AppCompatActivity {
-    private AppBarConfiguration appBarConfiguration;
     private ActivityDetailsBinding binding;
     private List<Dessert> allDesserts = new ArrayList<>();
     private List<Dessert> searchResults = new ArrayList<>();
@@ -52,30 +53,12 @@ public class DetailsActivity extends AppCompatActivity {
         // Dynamically load the fragment
         Bundle extras = getIntent().getExtras();
         String category = extras.getString("category");
-        String name = extras.getString("name");
-        String description = extras.getString("description");
-        String cost = extras.getString("price");
-        String id = extras.getString("id");
         Intent intent = getIntent();
         allDesserts = (List<Dessert>) intent.getSerializableExtra("allDesserts");
         if (category != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            DetailsCakesFragment cF = new DetailsCakesFragment();
-//                    cF.populateData(name, category, description, cost, id);
+            DetailsFragment cF = new DetailsFragment();
             ft.replace(R.id.details_fragment_placeholder, cF);
-//            switch (category) {
-//                case "cake":
-//                    DetailsCakesFragment cF = new DetailsCakesFragment();
-////                    cF.populateData(name, category, description, cost, id);
-//                    ft.replace(R.id.details_fragment_placeholder, cF);
-//                    break;
-//                case "drinks":
-//                    ft.replace(R.id.details_fragment_placeholder, new DrinksFragment());
-//                    break;
-//                case "frozen":
-//                    ft.replace(R.id.details_fragment_placeholder, new FrozenFragment());
-//                    break;
-//            }
             ft.commit();
         }
     }
@@ -152,7 +135,6 @@ public class DetailsActivity extends AppCompatActivity {
                 return true;
             case android.R.id.home:
                 onBackPressed();
-//                NavUtils.navigateUpFromSameTask(this);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 return true;
         }

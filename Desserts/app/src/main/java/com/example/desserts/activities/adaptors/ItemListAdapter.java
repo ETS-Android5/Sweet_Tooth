@@ -11,17 +11,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.desserts.R;
 import com.example.desserts.activities.DetailsActivity;
-import com.example.desserts.activities.ListActivity;
-import com.example.desserts.activities.MainActivity;
 import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.structures.Dessert;
+
 import java.io.Serializable;
 import java.util.List;
+
+/**
+ * ItemListAdapter is used to  populate the Recycler View for listing the categories' desserts.
+ * @author Amy Lyu
+ * @author Osama Kashif
+ */
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView priceTextView;
@@ -33,8 +38,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         public ViewHolder(@NonNull View itemView, String category) {
             super(itemView);
 
-            switch (category)
-            {
+            switch (category) {
                 case "frozen":
                     priceTextView = itemView.findViewById(R.id.frozen_price);
                     titleTextView = itemView.findViewById(R.id.frozen_mid_title);
@@ -63,6 +67,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         public void onClick(View v) {
         }
     }
+
     private List<Dessert> items;
     private List<Dessert> allDesserts;
     private FragmentActivity context;
@@ -75,16 +80,14 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         this.category = category;
         this.allDesserts = allDesserts;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate layout
         View dessertView;
-        switch (this.category)
-        {
-            case "cake":
-                dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_cake_list_item, parent, false);
-                break;
+        switch (this.category) {
+            /* The default case is cake hence it is not explicitly coded here. */
             case "frozen":
                 dessertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_frozen_list_item, parent, false);
                 break;
@@ -157,6 +160,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             }
         });
     }
+
     @Override
     public int getItemCount() {
         return this.items.size();

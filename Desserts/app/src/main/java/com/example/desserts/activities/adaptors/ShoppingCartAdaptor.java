@@ -16,16 +16,18 @@ import com.example.desserts.R;
 import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.structures.Dessert;
 
+/**
+ * ShoppingCartAdaptor is used to populate the List View inside the shopping cart drawer.
+ * @author Amy Lyu
+ * @author Osama Kashif
+ */
 public class ShoppingCartAdaptor  extends ArrayAdapter<Dessert> {
 
-    private int resourceLayout;
     private Context mContext;
-    private String category;
 
 
     public ShoppingCartAdaptor(@NonNull Context context, int resource) {
         super(context, resource, ShoppingCart.getInstance().getAllDessertsInCart());
-        this.resourceLayout = resource;
         this.mContext = context;
     }
 

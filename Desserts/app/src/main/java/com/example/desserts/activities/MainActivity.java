@@ -44,9 +44,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
+/**
+ * MainActivity is the Activity used at the start of the app.
+ * It is the main screen of the application allowing the User to direct to a category, go over
+ * the top 5 desserts, or search. It is loaded after the Splash Screen.
+ *
+ * @author Amy Lyu
+ * @author Tanya Li
+ * @author Osama Kashif
+ */
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private String selectedCategory;
     private List<Dessert> cakes = new ArrayList<>();
@@ -92,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new TopViewedAdapter(Helpers.top5(allDesserts), this, allDesserts);
         recyclerView.setAdapter(adapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 
         // Category buttons
@@ -134,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(MainActivity.this, "query submit", Toast.LENGTH_SHORT).show();
                 String searchQuery = mSearchView.getQuery().toString();
-                searchResults = Helpers.search(allDesserts,searchQuery);
+                searchResults = Helpers.search(allDesserts, searchQuery);
                 selectedCategory = "searchResults";
                 switchToListActivity();
                 return true;
@@ -167,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
-                                            cost.setText("Total cost: $"+ ShoppingCart.getInstance().getTotalCost()+"0");
+                                            cost.setText("Total cost: $" + ShoppingCart.getInstance().getTotalCost() + "0");
                                         }
                                     });
                                     Thread.sleep(300);
