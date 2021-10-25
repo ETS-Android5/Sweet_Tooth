@@ -159,7 +159,24 @@ public class MainActivity extends AppCompatActivity {
                     ListView lV = findViewById(R.id.shopping_cart);
                     lV.setAdapter(sA);
                     TextView cost = findViewById(R.id.total_cost);
-                    cost.setText("Total cost: $"+ ShoppingCart.getInstance().getTotalCost());
+                    new Thread() {
+                        int i = 0;
+                        public void run() {
+                            while (i++ < 1000) {
+                                try {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            cost.setText("Total cost: $"+ ShoppingCart.getInstance().getTotalCost()+"0");
+                                        }
+                                    });
+                                    Thread.sleep(300);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }.start();
                     NavigationView navigation = findViewById(R.id.nav_view);
                     navigation.bringToFront();
                     drawer.openDrawer(GravityCompat.END);
