@@ -65,6 +65,7 @@ public class TopViewedAdapter extends RecyclerView.Adapter<TopViewedAdapter.View
             switchActivityIntent.putExtra("description", this.top5Desserts.get(holder.getAdapterPosition()).getDescription());
             switchActivityIntent.putExtra("price", "$" + this.top5Desserts.get(holder.getAdapterPosition()).getCost() + "0");
             switchActivityIntent.putExtra("id", "" + this.top5Desserts.get(holder.getAdapterPosition()).getId());
+            switchActivityIntent.putExtra("dessert", this.top5Desserts.get(holder.getAdapterPosition()));
             c.startActivity(switchActivityIntent);
             c.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });
