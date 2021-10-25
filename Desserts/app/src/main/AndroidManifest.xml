@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name=".activities.SplashScreen"
-            android:label="SplashScreen"
+            android:label="Sweet Tooth"
             android:theme="@style/Theme.Desserts.NoActionBar">
 
             <!-- <meta-data -->
