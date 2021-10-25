@@ -5,19 +5,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageButton
-        android:id="@+id/top_viewed_button"
-        android:layout_width="0dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="320dp"
-
-
-        android:scaleType="centerCrop"
+        android:layout_marginEnd="16dp"
+        android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/cake1_3" />
-    <!--        app:layout_constraintBottom_toTopOf=""-->
+        app:cardCornerRadius="36dp">
+        <ImageView
+            android:id="@+id/top_viewed_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/cake1_3"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
