@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desserts.R;
+import com.example.desserts.activities.MainActivity;
 import com.example.desserts.activities.adaptors.ImageGalleryAdapter;
 import com.example.desserts.activities.adaptors.ItemListAdapter;
 import com.example.desserts.cart.ShoppingCart;
@@ -94,6 +96,7 @@ public class DetailsCakesFragment extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getActivity(), "Added to cart!", Toast.LENGTH_SHORT).show();
                 ShoppingCart.getInstance().addDessert(dessert);
             }
         });

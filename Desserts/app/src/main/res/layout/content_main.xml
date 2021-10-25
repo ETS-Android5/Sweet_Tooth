@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:translationZ="-1dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout
@@ -78,15 +79,35 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:layout_weight="1"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="?android:attr/actionBarSize"
         android:text="@string/top_viewed_selection"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="36dp"
         android:textAlignment="textStart"
         android:translationZ="8dp"
+        android:elevation="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/topViewedDesserts"/>
+        app:layout_constraintTop_toTopOf="@id/topViewedDesserts"
+        app:layout_constraintBottom_toTopOf="@id/topview_subtitle"/>
+
+    <TextView
+        android:id="@+id/topview_subtitle"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"
+        android:layout_marginStart="16dp"
+        android:text="@string/top_view_subtitle"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="12dp"
+        android:elevation="8dp"
+        android:textAlignment="textStart"
+        android:translationZ="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topview_title"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/topViewedDesserts"
@@ -98,6 +119,76 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cake_start_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="1dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/dot"
+        android:backgroundTint="@color/light_creme"
+        app:layout_constraintBottom_toBottomOf="@id/topViewedDesserts"
+        app:layout_constraintEnd_toStartOf="@+id/cake_mid_dot1"
+        app:layout_constraintStart_toStartOf="@id/categories"
+        />
+
+    <ImageView
+        android:id="@+id/cake_mid_dot1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="1dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/dot"
+        android:backgroundTint="@color/light_creme"
+        app:layout_constraintBottom_toBottomOf="@id/topViewedDesserts"
+        app:layout_constraintEnd_toStartOf="@+id/cake_mid_dot2"
+        app:layout_constraintStart_toEndOf="@+id/cake_start_dot"
+        />
+
+    <ImageView
+        android:id="@+id/cake_mid_dot2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="1dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/dot"
+        android:backgroundTint="@color/light_creme"
+        app:layout_constraintBottom_toBottomOf="@id/topViewedDesserts"
+        app:layout_constraintEnd_toStartOf="@+id/cake_mid_dot3"
+        app:layout_constraintStart_toEndOf="@+id/cake_mid_dot1"
+        />
+
+    <ImageView
+        android:id="@+id/cake_mid_dot3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="1dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/dot"
+        android:backgroundTint="@color/light_creme"
+        app:layout_constraintBottom_toBottomOf="@id/topViewedDesserts"
+        app:layout_constraintEnd_toStartOf="@+id/cake_end_dot"
+        app:layout_constraintStart_toEndOf="@+id/cake_mid_dot2"
+        />
+
+    <ImageView
+        android:id="@+id/cake_end_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationZ="1dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/dot"
+        android:backgroundTint="@color/light_creme"
+        app:layout_constraintBottom_toBottomOf="@id/topViewedDesserts"
+        app:layout_constraintEnd_toEndOf="@id/categories"
+        app:layout_constraintStart_toEndOf="@+id/cake_mid_dot3"
+        />
 
     <LinearLayout
         android:id="@+id/category_titles"

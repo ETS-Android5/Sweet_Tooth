@@ -25,8 +25,6 @@ public class CakesFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-//        binding = FragmentCakesBinding.inflate(inflater, container, false);
-
         view = inflater.inflate(R.layout.fragment_list_cakes, container, false);
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.cake_listview);
         ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity(), "cake");

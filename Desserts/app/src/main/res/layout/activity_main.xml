@@ -8,11 +8,6 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="end">
 
-    <include
-        layout="@layout/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="165dp"
@@ -33,49 +28,16 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar">
 
-<!--        <Button-->
-<!--            android:id="@+id/button_cakes"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Go to Cakes list"-->
-<!--            app:layout_constraintBottom_toTopOf="@id/button_drinks"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/textview_first" />-->
+        <include
+            layout="@layout/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-<!--        <Button-->
-<!--            android:id="@+id/button_drinks"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Go to Drinks list"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/button_frozen"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/button_drinks" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/button_frozen"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Go to Frozen list"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/button_drinks" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textview_first"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="MainActivity"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
-<!--        <include layout="@layout/content_main"></include>-->
-        <include layout="@layout/content_main"
-            android:layout_marginTop="?android:attr/actionBarSize"
+        <include
+            layout="@layout/content_main"
+            android:translationZ="-1dp"
             android:layout_height="match_parent"
-            android:layout_width="match_parent"></include>
+            android:layout_width="match_parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
