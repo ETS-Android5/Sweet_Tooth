@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="36dp">
+        app:cardCornerRadius="40dp">
         <ImageView
             android:id="@+id/top_viewed_button"
             android:layout_width="match_parent"
