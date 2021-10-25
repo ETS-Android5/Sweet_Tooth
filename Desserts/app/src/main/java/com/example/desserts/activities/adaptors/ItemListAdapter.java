@@ -147,7 +147,16 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             switchActivityIntent.putExtra("id", "" + items.get(holder.getAdapterPosition()).getId());
             switchActivityIntent.putExtra("dessert", items.get(holder.getAdapterPosition()));
             context.startActivity(switchActivityIntent);
-            context.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            switch (category) {
+                case "drinks":
+                    context.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    break;
+                case "frozen":
+                    context.overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
+                    break;
+                default:
+                    context.overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+            }
         });
     }
     @Override

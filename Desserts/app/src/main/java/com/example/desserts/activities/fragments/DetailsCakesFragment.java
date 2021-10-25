@@ -78,6 +78,16 @@ public class DetailsCakesFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 getActivity().onBackPressed();
+                switch (category) {
+                    case "drinks":
+                        getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                        break;
+                    case "icecream":
+                        getActivity().overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+                        break;
+                    default:
+                        getActivity().overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
+                }
             }
         });
         Button add = view.findViewById(R.id.cake_add_button_details);
