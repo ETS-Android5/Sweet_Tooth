@@ -27,19 +27,23 @@ public class Helpers {
         List<Dessert> searchResults = new ArrayList<>();
         for (Dessert des : listToSearchIn) {
             boolean found = false;
-            if ((Double.toString(des.getCost()).contains(searchQuery)) || (des.getDescription().contains(searchQuery)) || (des.getName().contains(searchQuery))) {
+            if ((Double.toString(des.getCost()).contains(searchQuery)) || (des.getDescription().contains(searchQuery)) || (des.getName().contains(searchQuery)) || (des.getCategory().contains(searchQuery))) {
                 searchResults.add(des);
                 found = true;
             }
-            if (!found) {
-                for (String ing : des.getContainedIngredients()) {
-                    if (ing.contains(searchQuery)) {
-                        searchResults.add(des);
-                        found = true;
-                        break;
-                    }
-                }
-            }
+            /*
+             * Commented out as the user cannot see he ingredients containe yet, so we felt it
+             * may be better to leave it from the search results.
+             */
+//            if (!found) {
+//                for (String ing : des.getContainedIngredients()) {
+//                    if (ing.contains(searchQuery)) {
+//                        searchResults.add(des);
+//                        found = true;
+//                        break;
+//                    }
+//                }
+//            }
             if (!found) {
                 for (String diets : des.getDietsSuitableFor()) {
                     if (diets.contains(searchQuery)) {
