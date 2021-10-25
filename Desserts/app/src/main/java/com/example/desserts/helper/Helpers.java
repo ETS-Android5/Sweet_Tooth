@@ -63,4 +63,23 @@ public class Helpers {
         return 5 > allDesserts.size() ? allDesserts : allDesserts.stream().limit(5).collect(Collectors.toList());
     }
 
+    /**
+     * Capitalises all the words of a String and returns that.
+     * I did not make this function, but found it:
+     * Reference: https://www.javatpoint.com/java-program-to-capitalize-each-word-in-string
+     *
+     * @param str - String to be capitalised.
+     * @return - Capitalised String.
+     */
+    public static String capitalizeWords(String str) {
+        String words[] = str.split("\\s");
+        String capitalizeWords = "";
+        for (String w : words) {
+            String first = w.substring(0, 1);
+            String afterfirst = w.substring(1);
+            capitalizeWords += first.toUpperCase() + afterfirst + " ";
+        }
+        return capitalizeWords.trim();
+    }
+
 }

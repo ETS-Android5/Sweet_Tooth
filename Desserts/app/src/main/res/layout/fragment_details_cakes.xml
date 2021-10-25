@@ -101,7 +101,34 @@
             app:layout_constraintTop_toBottomOf="@+id/cake_title_details"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/cake_details_card"
+            app:layout_constraintBottom_toTopOf="@+id/diets_suitable_for"
+            />
+
+        <TextView
+            android:id="@+id/diets_suitable_for_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suitable for the following diets:"
+            android:textColor="@color/burgundy"
+            android:textStyle="bold"
+            android:translationZ="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/cake_descrip_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/diets_suitable_for"
+            />
+
+        <TextView
+            android:id="@+id/diets_suitable_for"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="diets suitable for"
+            android:textColor="@color/burgundy"
+            android:translationZ="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/cake_descrip_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cake_add_button_details"
             />
 
         <Button

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import com.example.desserts.activities.adaptors.ImageGalleryAdapter;
 import com.example.desserts.activities.adaptors.ItemListAdapter;
 import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.databinding.FragmentDetailsCakesBinding;
+import com.example.desserts.helper.Helpers;
 import com.example.desserts.structures.Dessert;
 
 import java.util.ArrayList;
@@ -85,6 +87,16 @@ public class DetailsCakesFragment extends Fragment {
                 ShoppingCart.getInstance().addDessert(dessert);
             }
         });
+        TextView dietsTitle = view.findViewById(R.id.diets_suitable_for_title);
+        TextView diets = view.findViewById(R.id.diets_suitable_for);
+        if (dessert.getDietsSuitableFor().isEmpty()){
+            dietsTitle.setVisibility(View.INVISIBLE);
+            diets.setVisibility(View.INVISIBLE);
+        } else {
+            String dietsSuitableForWithBrackets =  dessert.getDietsSuitableFor().toString();
+            String dietsSuitableFor =  Helpers.capitalizeWords(dietsSuitableForWithBrackets.substring(1, dietsSuitableForWithBrackets.length()-1));
+            diets.setText(dietsSuitableFor);
+        }
 
         return view;
 
