@@ -24,13 +24,19 @@ import com.example.desserts.activities.fragments.DrinksFragment;
 import com.example.desserts.activities.fragments.FrozenFragment;
 import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.databinding.ActivityDetailsBinding;
+import com.example.desserts.helper.Helpers;
 import com.example.desserts.structures.Dessert;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 public class DetailsActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityDetailsBinding binding;
+    private List<Dessert> allDesserts = new ArrayList<>();
+    private List<Dessert> searchResults = new ArrayList<>();
+    private String selectedCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +56,8 @@ public class DetailsActivity extends AppCompatActivity {
         String description = extras.getString("description");
         String cost = extras.getString("price");
         String id = extras.getString("id");
+        Intent intent = getIntent();
+        allDesserts = (List<Dessert>) intent.getSerializableExtra("allDesserts");
         if (category != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             DetailsCakesFragment cF = new DetailsCakesFragment();
@@ -83,6 +91,10 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(DetailsActivity.this, "query submit", Toast.LENGTH_SHORT).show();
+                String searchQuery = mSearchView.getQuery().toString();
+                searchResults = Helpers.search(allDesserts,searchQuery);
+                selectedCategory = "searchResults";
+                switchToListActivity();
                 return true;
             }
             @Override
@@ -145,5 +157,14 @@ public class DetailsActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void switchToListActivity() {
+        Intent switchActivityIntent = new Intent(this, ListActivity.class);
+        switchActivityIntent.putExtra("category", selectedCategory);
+        switchActivityIntent.putExtra("searchResults", (Serializable) searchResults);
+        switchActivityIntent.putExtra("allDesserts", (Serializable) allDesserts);
+        startActivity(switchActivityIntent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

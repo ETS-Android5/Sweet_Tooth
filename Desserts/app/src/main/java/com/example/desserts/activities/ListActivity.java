@@ -74,6 +74,7 @@ public class ListActivity extends AppCompatActivity {
                     }
                     CakesFragment cF = new CakesFragment();
                     cF.populateCakes(cakes);
+                    cF.populateAllDesserts(allDesserts);
                     ft.replace(R.id.list_fragment_placeholder, cF);
                     break;
                 case "drinks":
@@ -83,6 +84,7 @@ public class ListActivity extends AppCompatActivity {
                     //---------Uncomment after implementation
                     DrinksFragment dF = new DrinksFragment();
                     dF.populateCakes(drinks);
+                    dF.populateAllDesserts(allDesserts);
                     ft.replace(R.id.list_fragment_placeholder, dF);
 //                    CakesFragment dF = new CakesFragment();
 //                    dF.populateCakes(drinks);
@@ -95,6 +97,7 @@ public class ListActivity extends AppCompatActivity {
                     //---------Uncomment after implementation
                     FrozenFragment fF = new FrozenFragment();
                     fF.populateCakes(frozen);
+                    fF.populateAllDesserts(allDesserts);
                     ft.replace(R.id.list_fragment_placeholder, fF);
 //                    CakesFragment fF = new CakesFragment();
 //                    fF.populateCakes(frozen);

@@ -53,6 +53,7 @@ public class FrozenFragment extends Fragment {
 private FragmentListCakesBinding binding;
     private View view;
     private List<Dessert> cakesList = new ArrayList<>();
+    private List<Dessert> allDesserts = new ArrayList<>();
 
     @Override
     public View onCreateView(
@@ -68,7 +69,7 @@ private FragmentListCakesBinding binding;
 //        List<Dessert> cakesList = DBLoader.getAllCakes();
         view = inflater.inflate(R.layout.fragment_list_frozen, container, false);
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.frozen_listview);
-        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity(), "frozen");
+        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity(), "frozen", allDesserts);
         cakeRecyclerView.setAdapter(itemListAdapter);
         cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
 
@@ -96,6 +97,10 @@ private FragmentListCakesBinding binding;
 
     public void populateCakes(List<Dessert> cakes) {
         cakesList = cakes;
+    }
+
+    public void populateAllDesserts(List<Dessert> allDesserts) {
+        this.allDesserts = allDesserts;
     }
 
 }

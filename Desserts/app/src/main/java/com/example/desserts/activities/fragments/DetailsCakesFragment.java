@@ -52,8 +52,6 @@ public class DetailsCakesFragment extends Fragment {
         String id = extras.getString("id");
         Intent intent = getActivity().getIntent();
         Dessert dessert = (Dessert) intent.getSerializableExtra("dessert");
-        System.out.println("dessert");
-        System.out.println(dessert);
 
         TextView name = view.findViewById(R.id.cake_title_details);
         name.setText(title);

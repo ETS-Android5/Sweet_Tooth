@@ -17,16 +17,19 @@ import com.example.desserts.R;
 import com.example.desserts.activities.DetailsActivity;
 import com.example.desserts.structures.Dessert;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class TopViewedAdapter extends RecyclerView.Adapter<TopViewedAdapter.ViewHolder> {
 
     private List<Dessert> top5Desserts;
     private FragmentActivity c;
+    private List<Dessert> allDesserts;
 
-    public TopViewedAdapter(List<Dessert> desserts, FragmentActivity c) {
+    public TopViewedAdapter(List<Dessert> desserts, FragmentActivity c, List<Dessert> allDesserts) {
         this.top5Desserts = desserts;
         this.c = c;
+        this.allDesserts = allDesserts;
     }
 
     @NonNull
@@ -68,6 +71,7 @@ public class TopViewedAdapter extends RecyclerView.Adapter<TopViewedAdapter.View
             switchActivityIntent.putExtra("price", "$" + this.top5Desserts.get(holder.getAdapterPosition()).getCost() + "0");
             switchActivityIntent.putExtra("id", "" + this.top5Desserts.get(holder.getAdapterPosition()).getId());
             switchActivityIntent.putExtra("dessert", this.top5Desserts.get(holder.getAdapterPosition()));
+            switchActivityIntent.putExtra("allDesserts", (Serializable) allDesserts);
             c.startActivity(switchActivityIntent);
             c.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         });

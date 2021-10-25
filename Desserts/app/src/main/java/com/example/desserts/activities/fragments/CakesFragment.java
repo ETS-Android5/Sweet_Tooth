@@ -19,6 +19,7 @@ public class CakesFragment extends Fragment {
     private FragmentListCakesBinding binding;
     private View view;
     private List<Dessert> cakesList = new ArrayList<>();
+    private List<Dessert> allDesserts = new ArrayList<>();
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -27,7 +28,7 @@ public class CakesFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_list_cakes, container, false);
         RecyclerView cakeRecyclerView = (RecyclerView) view.findViewById(R.id.cake_listview);
-        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity(), "cake");
+        ItemListAdapter itemListAdapter = new ItemListAdapter(cakesList, getActivity(), "cake", allDesserts);
         cakeRecyclerView.setAdapter(itemListAdapter);
         cakeRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.HORIZONTAL, false));
         return view;
@@ -49,5 +50,9 @@ public class CakesFragment extends Fragment {
     }
     public void populateCakes(List<Dessert> cakes) {
         cakesList = cakes;
+    }
+
+    public void populateAllDesserts(List<Dessert> allDesserts) {
+        this.allDesserts = allDesserts;
     }
 }

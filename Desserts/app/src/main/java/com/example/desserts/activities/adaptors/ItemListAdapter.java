@@ -64,14 +64,16 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         }
     }
     private List<Dessert> items;
+    private List<Dessert> allDesserts;
     private FragmentActivity context;
     private Dessert currentItem;
     private String category;
 
-    public ItemListAdapter(List<Dessert> items, FragmentActivity c, String category) {
+    public ItemListAdapter(List<Dessert> items, FragmentActivity c, String category, List<Dessert> allDesserts) {
         this.items = items;
         this.context = c;
         this.category = category;
+        this.allDesserts = allDesserts;
     }
     @NonNull
     @Override
@@ -141,6 +143,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             switchActivityIntent.putExtra("price", "$" + items.get(holder.getAdapterPosition()).getCost() + "0");
             switchActivityIntent.putExtra("id", "" + items.get(holder.getAdapterPosition()).getId());
             switchActivityIntent.putExtra("dessert", items.get(holder.getAdapterPosition()));
+            switchActivityIntent.putExtra("allDesserts", (Serializable) allDesserts);
             context.startActivity(switchActivityIntent);
             switch (category) {
                 case "drinks":
