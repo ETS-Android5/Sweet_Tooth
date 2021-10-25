@@ -24,6 +24,7 @@
         <activity
             android:name=".activities.SplashScreen"
             android:label="Sweet Tooth"
+            android:icon="@drawable/sweet_tooth_icon"
             android:theme="@style/Theme.Desserts.NoActionBar">
 
             <!-- <meta-data -->
