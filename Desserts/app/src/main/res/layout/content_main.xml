@@ -20,42 +20,73 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topViewedDesserts">
 
-        <ImageButton
+        <androidx.cardview.widget.CardView
             android:id="@+id/button_cakes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
+            app:cardCornerRadius="24dp"
             android:paddingEnd="1dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:background="@drawable/cake7_2"/>
-<!--            app:tint="@drawable/ic_baseline_dimeffect"-->
+            android:scaleType="centerInside">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/cake7_2"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
 
-        <ImageButton
+        <androidx.cardview.widget.CardView
             android:id="@+id/button_drinks"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
+            app:cardCornerRadius="24dp"
             android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:background="@drawable/coffee4_3" />
-<!--            app:tint="@drawable/ic_baseline_dimeffect"-->
+            android:scaleType="centerInside" >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/coffee4_3"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
 
-        <ImageButton
+        <androidx.cardview.widget.CardView
             android:id="@+id/button_frozen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
+            app:cardCornerRadius="24dp"
             android:adjustViewBounds="true"
             android:scaleType="centerInside"
-            android:background="@drawable/icecream3_2" />
-<!--            app:tint="@drawable/ic_baseline_dimeffect"-->
+            android:background="@drawable/icecream3_2" >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/icecream3_2"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/topview_title"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        android:text="@string/top_viewed_selection"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="36dp"
+        android:textAlignment="textStart"
+        android:translationZ="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/topViewedDesserts"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/topViewedDesserts"
@@ -64,8 +95,9 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/categories"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/category_titles"
@@ -89,6 +121,9 @@
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:text="Cakes"
+            android:textColor="@color/light_creme"
+            android:textStyle="bold"
+            android:textSize="16dp"
             android:textAlignment="center" />
 
         <TextView
@@ -99,6 +134,9 @@
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:text="Drinks"
+            android:textColor="@color/light_creme"
+            android:textStyle="bold"
+            android:textSize="16dp"
             android:textAlignment="center" />
 
         <TextView
@@ -108,6 +146,9 @@
             android:layout_marginStart="4dp"
             android:layout_weight="1"
             android:text="Frozen"
+            android:textColor="@color/light_creme"
+            android:textStyle="bold"
+            android:textSize="16dp"
             android:textAlignment="center" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

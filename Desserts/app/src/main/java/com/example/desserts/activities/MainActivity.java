@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -95,21 +96,21 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // Category buttons
-        ImageButton cakesListButton = findViewById(R.id.button_cakes);
+        CardView cakesListButton = findViewById(R.id.button_cakes);
         cakesListButton.setOnClickListener(v -> {
             Toast.makeText(MainActivity.this, "Cakes list loading...", Toast.LENGTH_SHORT).show();
             selectedCategory = "cakes";
             switchToListActivity();
         });
 
-        ImageButton drinksListButton = findViewById(R.id.button_drinks);
+        CardView drinksListButton = findViewById(R.id.button_drinks);
         drinksListButton.setOnClickListener(v -> {
             Toast.makeText(MainActivity.this, "Drinks list loading...", Toast.LENGTH_SHORT).show();
             selectedCategory = "drinks";
             switchToListActivity();
         });
 
-        ImageButton frozenListButton = findViewById(R.id.button_frozen);
+        CardView frozenListButton = findViewById(R.id.button_frozen);
         frozenListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
