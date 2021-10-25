@@ -38,7 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // Dynamically load the fragment
@@ -112,8 +112,8 @@ public class DetailsActivity extends AppCompatActivity {
                 Toast.makeText(DetailsActivity.this, "searching", Toast.LENGTH_SHORT).show();
                 return true;
             case android.R.id.home:
-//                onBackPressed();
-                NavUtils.navigateUpFromSameTask(this);
+                onBackPressed();
+//                NavUtils.navigateUpFromSameTask(this);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 return true;
         }
