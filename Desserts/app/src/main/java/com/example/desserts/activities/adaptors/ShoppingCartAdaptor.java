@@ -1,6 +1,5 @@
 package com.example.desserts.activities.adaptors;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
@@ -9,19 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desserts.R;
 import com.example.desserts.cart.ShoppingCart;
 import com.example.desserts.structures.Dessert;
-
-import java.util.Collections;
-import java.util.List;
 
 public class ShoppingCartAdaptor  extends ArrayAdapter<Dessert> {
 

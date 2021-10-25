@@ -177,6 +177,15 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     }.start();
+                    Button confirm = findViewById(R.id.confirm_order);
+                    confirm.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ShoppingCart.getInstance().confirmOrder();
+                            sA.notifyDataSetChanged();
+                            Toast.makeText(MainActivity.this, "Your order has been confirmed!", Toast.LENGTH_LONG).show();
+                        }
+                    });
                     NavigationView navigation = findViewById(R.id.nav_view);
                     navigation.bringToFront();
                     drawer.openDrawer(GravityCompat.END);
